@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Live-Cell Imaging Core Facility</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body {
+    font-family: "Noto Sans TC", Arial, sans-serif;
+}
+
+
+/* Hero */
+
+.hero {
+
+    height: 90vh;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.45)
+    ),
+    url("https://images.unsplash.com/photo-1576086213369-97a306d36557");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    align-items:center;
+
+    color:white;
+}
+
+
+.hero h1 {
+
+    font-size:4rem;
+    font-weight:800;
+
+}
+
+
+.hero p {
+
+    font-size:1.3rem;
+    max-width:700px;
+
+}
+
+
+
+/* section */
+
+.section {
+
+    padding:80px 0;
+
+}
+
+
+.title {
+
+    font-weight:800;
+    margin-bottom:40px;
+
+}
+
+
+
+/* cards */
+
+
+.card {
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+    height:100%;
+
+}
+
+
+.card img {
+
+    height:230px;
+
+    object-fit:cover;
+
+}
+
+
+
+/* workflow */
+
+.workflow div {
+
+    background:#0d6efd;
+
+    color:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+}
+
+
+
+/* footer */
+
+
+footer {
+
+    background:#111;
+
+    color:white;
+
+    padding:40px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<!-- Navigation -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold">
+Live-Cell Imaging Core
+</a>
+
+
+<button class="navbar-toggler"
+data-bs-toggle="collapse"
+data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+
+<div class="collapse navbar-collapse"
+id="menu">
+
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="#service">
+Services
+</a>
+</li>
+
+
+<li class="nav-item">
+<a class="nav-link" href="#instrument">
+Instruments
+</a>
+</li>
+
+
+<li class="nav-item">
+<a class="nav-link" href="#analysis">
+AI Analysis
+</a>
+</li>
+
+
+<li class="nav-item">
+<a class="nav-link" href="#contact">
+Contact
+</a>
+</li>
+
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+
+<!-- Hero -->
+
+<section class="hero">
+
+
+<div class="container">
+
+
+<h1>
+Advanced Microscopy<br>
+for Biological Discovery
+</h1>
+
+
+<p>
+
+Providing advanced optical imaging,
+live-cell microscopy,
+quantitative image analysis,
+and AI-assisted biological discovery.
+
+</p>
+
+
+<a class="btn btn-primary btn-lg">
+Book Instrument
+</a>
+
+
+<a class="btn btn-outline-light btn-lg">
+Image Gallery
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- Services -->
+
+
+<section class="section" id="service">
+
+
+<div class="container">
+
+
+<h2 class="title">
+Our Services
+</h2>
+
+
+<div class="row g-4">
+
+
+<div class="col-md-3">
+
+<div class="card p-4">
+
+<h4>
+Confocal Imaging
+</h4>
+
+<p>
+High resolution fluorescence imaging
+for cellular and molecular studies.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+<div class="col-md-3">
+
+<div class="card p-4">
+
+<h4>
+Live Cell Imaging
+</h4>
+
+<p>
+Dynamic observation of biological processes.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+<div class="col-md-3">
+
+<div class="card p-4">
+
+<h4>
+Super Resolution
+</h4>
+
+<p>
+Airyscan and advanced optical microscopy.
+</p>
+
+</div>
+
+</div>
+
+
+
+
+<div class="col-md-3">
+
+<div class="card p-4">
+
+<h4>
+AI Image Analysis
+</h4>
+
+<p>
+Cell segmentation and quantitative analysis.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- Instruments -->
+
+
+<section class="section bg-light"
+id="instrument">
+
+
+<div class="container">
+
+
+<h2 class="title">
+Featured Instruments
+</h2>
+
+
+<div class="row g-4">
+
+
+<div class="col-md-4">
+
+<div class="card">
+
+
+<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
+class="card-img-top">
+
+
+<div class="card-body">
+
+
+<h4>
+ZEISS LSM 880 Airyscan
+</h4>
+
+
+<p>
+High resolution confocal imaging
+with Airyscan detector.
+</p>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-4">
+
+<div class="card">
+
+
+<img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac"
+class="card-img-top">
+
+
+<div class="card-body">
+
+
+<h4>
+Leica STELLARIS 8
+</h4>
+
+
+<p>
+White light laser spectral imaging
+and FLIM capability.
+</p>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-4">
+
+<div class="card">
+
+
+<img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8"
+class="card-img-top">
+
+
+<div class="card-body">
+
+
+<h4>
+Olympus FV3000
+</h4>
+
+
+<p>
+Multiplex fluorescence microscopy.
+</p>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- Workflow -->
+
+
+<section class="section">
+
+
+<div class="container">
+
+
+<h2 class="title">
+Imaging Workflow
+</h2>
+
+
+<div class="row g-3 workflow">
+
+
+<div class="col">
+Research Question
+</div>
+
+
+<div class="col">
+Consultation
+</div>
+
+
+<div class="col">
+Microscopy
+</div>
+
+
+<div class="col">
+Image Analysis
+</div>
+
+
+<div class="col">
+Publication
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- AI -->
+
+<section class="section bg-light"
+id="analysis">
+
+
+<div class="container">
+
+
+<h2 class="title">
+From Imaging to Quantitative Biology
+</h2>
+
+
+<p class="fs-5">
+
+Beyond image acquisition, we provide
+advanced analysis workflows including
+segmentation, tracking,
+and AI-assisted image interpretation.
+
+</p>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<footer id="contact">
+
+
+<div class="container text-center">
+
+<h4>
+Live-Cell Imaging Core Facility
+</h4>
+
+
+<p>
+Institute of Plant and Microbial Biology<br>
+Academia Sinica
+</p>
+
+
+</div>
+
+
+</footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
