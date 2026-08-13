@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Live-Cell Imaging Core Facility | IPMB</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   Base
+========================================================= */
+
+:root {
+
+    --ink: #26332f;
+    --muted: #66736f;
+
+    --forest: #315f58;
+    --forest-dark: #244943;
+
+    --sage: #dfe9e5;
+    --mist: #f3f6f4;
+
+    --warm: #e7c98b;
+
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        "Noto Sans TC",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: var(--ink);
+
+    background: #ffffff;
+
+}
+
+
+
+/* =========================================================
+   Navigation
+========================================================= */
+
+.navbar {
+
+    background: rgba(30, 42, 39, .94) !important;
+
+    backdrop-filter: blur(12px);
+
+}
+
+
+.navbar-brand {
+
+    letter-spacing: .04em;
+
+}
+
+
+.navbar-brand small {
+
+    display: block;
+
+    font-size: .65rem;
+
+    font-weight: 400;
+
+    opacity: .65;
+
+    letter-spacing: .08em;
+
+}
+
+
+.nav-link {
+
+    margin-left: 10px;
+
+    transition: .25s;
+
+}
+
+
+.nav-link:hover {
+
+    color: var(--warm) !important;
+
+}
+
+
+
+/* =========================================================
+   Hero
+========================================================= */
+
+.hero {
+
+    min-height: 90vh;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(24,34,31,.78),
+            rgba(24,34,31,.35)
+        ),
+
+        url("https://images.unsplash.com/photo-1576086213369-97a306d36557");
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    align-items: center;
+
+    color: white;
+
+    position: relative;
+
+}
+
+
+.hero-content {
+
+    padding-top: 60px;
+
+}
+
+
+.hero h1 {
+
+    font-size: clamp(2.8rem, 6vw, 5rem);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: -.03em;
+
+}
+
+
+.hero p {
+
+    font-size: 1.2rem;
+
+    max-width: 680px;
+
+    color: rgba(255,255,255,.86);
+
+    line-height: 1.8;
+
+}
+
+
+
+/* Hero buttons */
+
+.btn-core {
+
+    background: var(--forest);
+
+    color: white;
+
+    border: none;
+
+    padding: 13px 25px;
+
+    border-radius: 50px;
+
+    transition: .25s;
+
+}
+
+
+.btn-core:hover {
+
+    background: var(--forest-dark);
+
+    color: white;
+
+    transform: translateY(-2px);
+
+}
+
+
+.btn-outline-core {
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,.65);
+
+    padding: 13px 25px;
+
+    border-radius: 50px;
+
+    transition: .25s;
+
+}
+
+
+.btn-outline-core:hover {
+
+    background: white;
+
+    color: var(--ink);
+
+}
+
+
+
+/* =========================================================
+   Sections
+========================================================= */
+
+.section {
+
+    padding: 100px 0;
+
+}
+
+
+.section-soft {
+
+    background: var(--mist);
+
+}
+
+
+.eyebrow {
+
+    font-size: .78rem;
+
+    font-weight: 700;
+
+    letter-spacing: .18em;
+
+    text-transform: uppercase;
+
+    color: var(--forest);
+
+    margin-bottom: 12px;
+
+}
+
+
+.title {
+
+    font-size: 2.4rem;
+
+    font-weight: 800;
+
+    letter-spacing: -.02em;
+
+    margin-bottom: 45px;
+
+}
+
+
+.lead-text {
+
+    color: var(--muted);
+
+    font-size: 1.08rem;
+
+    line-height: 1.9;
+
+}
+
+
+
+/* =========================================================
+   Service Cards
+========================================================= */
+
+.service-card {
+
+    border: none;
+
+    border-radius: 18px;
+
+    padding: 32px;
+
+    height: 100%;
+
+    background: white;
+
+    box-shadow:
+
+        0 12px 35px rgba(30,50,45,.08);
+
+    transition:
+
+        transform .3s ease,
+
+        box-shadow .3s ease;
+
+}
+
+
+.service-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+
+        0 20px 45px rgba(30,50,45,.14);
+
+}
+
+
+.service-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 14px;
+
+    background: var(--sage);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    font-size: 1.4rem;
+
+}
+
+
+.service-card h4 {
+
+    font-weight: 700;
+
+}
+
+
+.service-card p {
+
+    color: var(--muted);
+
+    line-height: 1.7;
+
+}
+
+
+
+/* =========================================================
+   Instruments
+========================================================= */
+
+.instrument-card {
+
+    border: none;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background: white;
+
+    box-shadow:
+
+        0 10px 35px rgba(30,50,45,.08);
+
+    height: 100%;
+
+    transition: .3s;
+
+}
+
+
+.instrument-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+
+        0 20px 45px rgba(30,50,45,.14);
+
+}
+
+
+.instrument-card img {
+
+    height: 250px;
+
+    width: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.instrument-card .card-body {
+
+    padding: 28px;
+
+}
+
+
+.instrument-card h4 {
+
+    font-weight: 750;
+
+}
+
+
+.instrument-card p {
+
+    color: var(--muted);
+
+    line-height: 1.7;
+
+}
+
+
+.instrument-link {
+
+    color: var(--forest);
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+}
+
+
+.instrument-link:hover {
+
+    color: var(--forest-dark);
+
+}
+
+
+
+/* =========================================================
+   Workflow
+========================================================= */
+
+.workflow-item {
+
+    position: relative;
+
+    padding: 30px 20px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+
+        0 8px 25px rgba(30,50,45,.07);
+
+}
+
+
+.workflow-number {
+
+    font-size: .75rem;
+
+    font-weight: 800;
+
+    letter-spacing: .15em;
+
+    color: var(--forest);
+
+    margin-bottom: 12px;
+
+}
+
+
+
+/* =========================================================
+   Analysis section
+========================================================= */
+
+.analysis-box {
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #315f58,
+
+            #244943
+
+        );
+
+    color: white;
+
+    border-radius: 28px;
+
+    padding: 60px;
+
+}
+
+
+.analysis-box p {
+
+    color: rgba(255,255,255,.8);
+
+    line-height: 1.9;
+
+}
+
+
+
+/* =========================================================
+   Footer
+========================================================= */
+
+footer {
+
+    background: #202b28;
+
+    color: white;
+
+    padding: 60px 0;
+
+}
+
+
+footer p {
+
+    color: rgba(255,255,255,.65);
+
+    line-height: 1.8;
+
+}
+
+
+.footer-link {
+
+    color: rgba(255,255,255,.7);
+
+    text-decoration: none;
+
+}
+
+
+.footer-link:hover {
+
+    color: white;
+
+}
+
+
+
+/* =========================================================
+   Responsive
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .section {
+
+        padding: 70px 0;
+
+    }
+
+    .hero {
+
+        min-height: 85vh;
+
+    }
+
+    .analysis-box {
+
+        padding: 35px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     Navigation
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="#">
+
+    LIVE-CELL IMAGING CORE
+
+    <small>
+        Institute of Plant and Microbial Biology · Academia Sinica
+    </small>
+
+</a>
+
+
+<button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#menu">
+
+    <span class="navbar-toggler-icon"></span>
+
+</button>
+
+
+<div class="collapse navbar-collapse" id="menu">
+
+
+<ul class="navbar-nav ms-auto align-items-lg-center">
+
+<li class="nav-item">
+<a class="nav-link" href="#service">
+Services
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#instrument">
+Instruments
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#analysis">
+Analysis
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#training">
+Training
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#resources">
+Resources
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#contact">
+Contact
+</a>
+</li>
+
+<li class="nav-item ms-lg-3">
+
+<a
+    class="btn btn-core"
+    href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+    target="_blank">
+
+    Book an Instrument ↗
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     Hero
+========================================================= -->
+
+<section class="hero">
+
+<div class="container hero-content">
+
+<div class="row">
+
+<div class="col-lg-8">
+
+
+<div class="eyebrow text-light">
+
+    Live-Cell Imaging Core Facility
+
+</div>
+
+
+<h1>
+
+    Advanced Imaging<br>
+
+    for Biological Discovery
+
+</h1>
+
+
+<p class="mt-4">
+
+    Confocal microscopy, live-cell imaging,
+    quantitative image analysis,
+    and advanced imaging technologies
+    for plant and microbial research.
+
+</p>
+
+
+<div class="mt-4">
+
+<a
+    class="btn btn-core btn-lg me-2"
+    href="#instrument">
+
+    Explore Instruments
+
+</a>
+
+
+<a
+    class="btn btn-outline-core btn-lg"
+    href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+    target="_blank">
+
+    Book an Instrument ↗
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Services
+========================================================= -->
+
+<section class="section" id="service">
+
+<div class="container">
+
+
+<div class="eyebrow">
+What We Do
+</div>
+
+<h2 class="title">
+Imaging Services
+</h2>
+
+
+<div class="row g-4">
+
+
+<div class="col-md-6 col-lg-3">
+
+<div class="service-card">
+
+<div class="service-icon">
+🔬
+</div>
+
+<h4>
+Confocal Imaging
+</h4>
+
+<p>
+High-resolution fluorescence imaging
+for cellular and molecular studies.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6 col-lg-3">
+
+<div class="service-card">
+
+<div class="service-icon">
+🌱
+</div>
+
+<h4>
+Live-Cell Imaging
+</h4>
+
+<p>
+Dynamic observation of biological
+processes in living cells and tissues.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6 col-lg-3">
+
+<div class="service-card">
+
+<div class="service-icon">
+✦
+</div>
+
+<h4>
+Advanced Microscopy
+</h4>
+
+<p>
+Airyscan, spectral imaging,
+FLIM and other advanced techniques.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6 col-lg-3">
+
+<div class="service-card">
+
+<div class="service-icon">
+◎
+</div>
+
+<h4>
+Image Analysis
+</h4>
+
+<p>
+Quantitative image analysis,
+segmentation and AI-assisted workflows.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Instruments
+========================================================= -->
+
+<section
+    class="section section-soft"
+    id="instrument">
+
+<div class="container">
+
+
+<div class="eyebrow">
+Our Platform
+</div>
+
+<h2 class="title">
+Featured Instruments
+</h2>
+
+
+<div class="row g-4">
+
+
+<div class="col-lg-4">
+
+<div class="instrument-card">
+
+
+<img
+src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
+alt="Microscopy">
+
+
+<div class="card-body">
+
+<h4>
+ZEISS LSM 880 Airyscan
+</h4>
+
+<p>
+High-resolution confocal imaging
+with Airyscan detection.
+</p>
+
+<a
+href="#"
+class="instrument-link">
+
+Explore instrument →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4">
+
+<div class="instrument-card">
+
+
+<img
+src="https://images.unsplash.com/photo-1518152006812-edab29b069ac"
+alt="Microscopy">
+
+
+<div class="card-body">
+
+<h4>
+Leica STELLARIS 8
+</h4>
+
+<p>
+White light laser spectral imaging
+and FLIM capability.
+</p>
+
+<a
+href="#"
+class="instrument-link">
+
+Explore instrument →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4">
+
+<div class="instrument-card">
+
+
+<img
+src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8"
+alt="Microscopy">
+
+
+<div class="card-body">
+
+<h4>
+Olympus FV3000
+</h4>
+
+<p>
+Multiplex fluorescence microscopy
+for advanced biological imaging.
+</p>
+
+<a
+href="#"
+class="instrument-link">
+
+Explore instrument →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Workflow
+========================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+
+<div class="eyebrow">
+From Question to Data
+</div>
+
+<h2 class="title">
+Imaging Workflow
+</h2>
+
+
+<div class="row g-3">
+
+
+<div class="col-md">
+
+<div class="workflow-item">
+
+<div class="workflow-number">
+01
+</div>
+
+<strong>
+Research Question
+</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md">
+
+<div class="workflow-item">
+
+<div class="workflow-number">
+02
+</div>
+
+<strong>
+Consultation
+</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md">
+
+<div class="workflow-item">
+
+<div class="workflow-number">
+03
+</div>
+
+<strong>
+Microscopy
+</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md">
+
+<div class="workflow-item">
+
+<div class="workflow-number">
+04
+</div>
+
+<strong>
+Image Analysis
+</strong>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md">
+
+<div class="workflow-item">
+
+<div class="workflow-number">
+05
+</div>
+
+<strong>
+Quantification
+</strong>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Analysis
+========================================================= -->
+
+<section
+    class="section section-soft"
+    id="analysis">
+
+<div class="container">
+
+<div class="analysis-box">
+
+
+<div class="eyebrow text-light">
+Beyond Acquisition
+</div>
+
+
+<h2 class="display-6 fw-bold">
+
+    From Imaging to<br>
+    Quantitative Biology
+
+</h2>
+
+
+<p class="fs-5 mt-4">
+
+    Beyond image acquisition, we support
+    advanced analysis workflows including
+    segmentation, tracking, 3D reconstruction,
+    quantitative analysis and AI-assisted
+    image interpretation.
+
+</p>
+
+
+<a
+href="#"
+class="btn btn-light rounded-pill px-4 mt-3">
+
+Explore Image Analysis →
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Training
+========================================================= -->
+
+<section
+    class="section"
+    id="training">
+
+<div class="container">
+
+
+<div class="eyebrow">
+Learn With Us
+</div>
+
+<h2 class="title">
+Training & Consultation
+</h2>
+
+
+<div class="row">
+
+
+<div class="col-lg-8">
+
+<p class="lead-text">
+
+    We provide hands-on instrument training,
+    imaging consultation, image acquisition
+    guidance, and troubleshooting support.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Resources
+========================================================= -->
+
+<section
+    class="section section-soft"
+    id="resources">
+
+<div class="container">
+
+
+<div class="eyebrow">
+Knowledge Base
+</div>
+
+<h2 class="title">
+Resources
+</h2>
+
+
+<div class="row g-4">
+
+
+<div class="col-md-4">
+
+<div class="service-card">
+
+<h4>
+Operation Manuals
+</h4>
+
+<p>
+Instrument manuals and training materials.
+</p>
+
+<a href="#" class="instrument-link">
+View resources →
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4">
+
+<div class="service-card">
+
+<h4>
+Image Analysis
+</h4>
+
+<p>
+Software, workflows and analysis resources.
+</p>
+
+<a href="#analysis" class="instrument-link">
+Explore analysis →
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4">
+
+<div class="service-card">
+
+<h4>
+Frequently Asked Questions
+</h4>
+
+<p>
+Common questions about imaging and facility use.
+</p>
+
+<a href="#" class="instrument-link">
+View FAQ →
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Contact
+========================================================= -->
+
+<footer id="contact">
+
+<div class="container">
+
+<div class="row g-5">
+
+
+<div class="col-lg-7">
+
+<h3 class="fw-bold">
+Live-Cell Imaging Core Facility
+</h3>
+
+<p class="mt-3">
+
+Institute of Plant and Microbial Biology<br>
+Academia Sinica<br>
+Taipei, Taiwan
+
+</p>
+
+</div>
+
+
+<div class="col-lg-5">
+
+<h5>
+Need an imaging consultation?
+</h5>
+
+<p>
+
+Have a biological question
+and not sure which imaging approach
+is right for your experiment?
+
+</p>
+
+
+<a
+href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+target="_blank"
+class="btn btn-core">
+
+Book an Instrument ↗
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<hr class="my-5 opacity-25">
+
+
+<div class="small opacity-50">
+
+© Academia Sinica · Institute of Plant and Microbial Biology
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>
