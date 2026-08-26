@@ -3,616 +3,630 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Live-Cell Imaging Core Facility | IPMB</title>
+    <title>Live-Cell Imaging Core Facility | IPMB</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-rel="stylesheet">
-<link rel="icon" type="image/png" href="images/favicon2.png">
-<style>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
-/* =========================================================
-   Base
-========================================================= */
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/favicon2.png">
 
-:root {
 
-    --ink: #26332f;
-    --muted: #66736f;
+    <style>
 
-    --forest: #315f58;
-    --forest-dark: #244943;
+        /* =========================================================
+           Base
+        ========================================================= */
 
-    --sage: #dfe9e5;
-    --mist: #f3f6f4;
+        :root {
 
-    --warm: #e7c98b;
+            --ink: #26332f;
+            --muted: #66736f;
 
-}
+            --forest: #315f58;
+            --forest-dark: #244943;
 
+            --sage: #dfe9e5;
+            --mist: #f3f6f4;
 
-html {
-    scroll-behavior: smooth;
-}
+            --warm: #e7c98b;
 
+        }
 
-body {
 
-    font-family:
-        "Noto Sans TC",
-        "Segoe UI",
-        Arial,
-        sans-serif;
+        html {
+            scroll-behavior: smooth;
+        }
 
-    color: var(--ink);
 
-    background: #ffffff;
+        body {
 
-}
+            font-family:
+                "Noto Sans TC",
+                "Segoe UI",
+                Arial,
+                sans-serif;
 
+            color: var(--ink);
 
+            background: #ffffff;
 
-/* =========================================================
-   Navigation
-========================================================= */
+        }
 
-.navbar {
 
-    background: rgba(30, 42, 39, .94) !important;
 
-    backdrop-filter: blur(12px);
+        /* =========================================================
+           Navigation
+        ========================================================= */
 
-}
+        .navbar {
 
+            background: rgba(30, 42, 39, .94) !important;
 
-.navbar-brand {
+            backdrop-filter: blur(12px);
 
-    letter-spacing: .04em;
+        }
 
-}
 
+        .navbar-brand {
 
-.navbar-brand small {
+            letter-spacing: .04em;
 
-    display: block;
+        }
 
-    font-size: .65rem;
 
-    font-weight: 400;
+        .navbar-brand small {
 
-    opacity: .65;
+            display: block;
 
-    letter-spacing: .08em;
+            font-size: .65rem;
 
-}
+            font-weight: 400;
 
+            opacity: .65;
 
-.nav-link {
+            letter-spacing: .08em;
 
-    margin-left: 10px;
+        }
 
-    transition: .25s;
 
-}
+        .nav-link {
 
+            margin-left: 10px;
 
-.nav-link:hover {
+            transition: .25s;
 
-    color: var(--warm) !important;
+        }
 
-}
 
+        .nav-link:hover {
 
+            color: var(--warm) !important;
 
-/* =========================================================
-   Hero
-========================================================= */
+        }
 
-.hero {
 
-    min-height: 90vh;
 
-    background:
+        /* =========================================================
+           Hero
+        ========================================================= */
 
-        linear-gradient(
-            90deg,
-            rgba(24,34,31,.78),
-            rgba(24,34,31,.35)
-        ),
+        .hero {
 
-        url("https://images.unsplash.com/photo-1576086213369-97a306d36557");
+            min-height: 90vh;
 
-    background-size: cover;
+            background:
 
-    background-position: center;
+                linear-gradient(
+                    90deg,
+                    rgba(24,34,31,.78),
+                    rgba(24,34,31,.35)
+                ),
 
-    display: flex;
+                url("https://images.unsplash.com/photo-1576086213369-97a306d36557");
 
-    align-items: center;
+            background-size: cover;
 
-    color: white;
+            background-position: center;
 
-    position: relative;
+            display: flex;
 
-}
+            align-items: center;
 
+            color: white;
 
-.hero-content {
+            position: relative;
 
-    padding-top: 60px;
+        }
 
-}
 
+        .hero-content {
 
-.hero h1 {
+            padding-top: 60px;
 
-    font-size: clamp(2.8rem, 6vw, 5rem);
+        }
 
-    line-height: 1.05;
 
-    font-weight: 800;
+        .hero h1 {
 
-    letter-spacing: -.03em;
+            font-size: clamp(2.8rem, 6vw, 5rem);
 
-}
+            line-height: 1.05;
 
+            font-weight: 800;
 
-.hero p {
+            letter-spacing: -.03em;
 
-    font-size: 1.2rem;
+        }
 
-    max-width: 680px;
 
-    color: rgba(255,255,255,.86);
+        .hero p {
 
-    line-height: 1.8;
+            font-size: 1.2rem;
 
-}
+            max-width: 680px;
 
+            color: rgba(255,255,255,.86);
 
+            line-height: 1.8;
 
-/* Hero buttons */
+        }
 
-.btn-core {
 
-    background: var(--forest);
 
-    color: white;
+        /* =========================================================
+           Hero Buttons
+        ========================================================= */
 
-    border: none;
+        .btn-core {
 
-    padding: 13px 25px;
+            background: var(--forest);
 
-    border-radius: 50px;
+            color: white;
 
-    transition: .25s;
+            border: none;
 
-}
+            padding: 13px 25px;
 
+            border-radius: 50px;
 
-.btn-core:hover {
+            transition: .25s;
 
-    background: var(--forest-dark);
+        }
 
-    color: white;
 
-    transform: translateY(-2px);
+        .btn-core:hover {
 
-}
+            background: var(--forest-dark);
 
+            color: white;
 
-.btn-outline-core {
+            transform: translateY(-2px);
 
-    color: white;
+        }
 
-    border: 1px solid rgba(255,255,255,.65);
 
-    padding: 13px 25px;
+        .btn-outline-core {
 
-    border-radius: 50px;
+            color: white;
 
-    transition: .25s;
+            border: 1px solid rgba(255,255,255,.65);
 
-}
+            padding: 13px 25px;
 
+            border-radius: 50px;
 
-.btn-outline-core:hover {
+            transition: .25s;
 
-    background: white;
+        }
 
-    color: var(--ink);
 
-}
+        .btn-outline-core:hover {
 
+            background: white;
 
+            color: var(--ink);
 
-/* =========================================================
-   Sections
-========================================================= */
+        }
 
-.section {
 
-    padding: 100px 0;
 
-}
+        /* =========================================================
+           Sections
+        ========================================================= */
 
+        .section {
 
-.section-soft {
+            padding: 100px 0;
 
-    background: var(--mist);
+        }
 
-}
 
+        .section-soft {
 
-.eyebrow {
+            background: var(--mist);
 
-    font-size: .78rem;
+        }
 
-    font-weight: 700;
 
-    letter-spacing: .18em;
+        .eyebrow {
 
-    text-transform: uppercase;
+            font-size: .78rem;
 
-    color: var(--forest);
+            font-weight: 700;
 
-    margin-bottom: 12px;
+            letter-spacing: .18em;
 
-}
+            text-transform: uppercase;
 
+            color: var(--forest);
 
-.title {
+            margin-bottom: 12px;
 
-    font-size: 2.4rem;
+        }
 
-    font-weight: 800;
 
-    letter-spacing: -.02em;
+        .title {
 
-    margin-bottom: 45px;
+            font-size: 2.4rem;
 
-}
+            font-weight: 800;
 
+            letter-spacing: -.02em;
 
-.lead-text {
+            margin-bottom: 45px;
 
-    color: var(--muted);
+        }
 
-    font-size: 1.08rem;
 
-    line-height: 1.9;
+        .lead-text {
 
-}
+            color: var(--muted);
 
+            font-size: 1.08rem;
 
+            line-height: 1.9;
 
-/* =========================================================
-   Service Cards
-========================================================= */
+        }
 
-.service-card {
 
-    border: none;
 
-    border-radius: 18px;
+        /* =========================================================
+           Service Cards
+        ========================================================= */
 
-    padding: 32px;
+        .service-card {
 
-    height: 100%;
+            border: none;
 
-    background: white;
+            border-radius: 18px;
 
-    box-shadow:
+            padding: 32px;
 
-        0 12px 35px rgba(30,50,45,.08);
+            height: 100%;
 
-    transition:
+            background: white;
 
-        transform .3s ease,
+            box-shadow:
 
-        box-shadow .3s ease;
+                0 12px 35px rgba(30,50,45,.08);
 
-}
+            transition:
 
+                transform .3s ease,
 
-.service-card:hover {
+                box-shadow .3s ease;
 
-    transform: translateY(-7px);
+        }
 
-    box-shadow:
 
-        0 20px 45px rgba(30,50,45,.14);
+        .service-card:hover {
 
-}
+            transform: translateY(-7px);
 
-/* Make the whole service1 card clickable */
+            box-shadow:
 
-.service-link {
+                0 20px 45px rgba(30,50,45,.14);
 
-    text-decoration: none;
+        }
 
-    color: inherit;
 
-    display: block;
+        /* Make the whole service card clickable */
 
-    height: 100%;
-}
+        .service-link {
 
-.service-icon {
+            text-decoration: none;
 
-    width: 52px;
+            color: inherit;
 
-    height: 52px;
+            display: block;
 
-    border-radius: 14px;
+            height: 100%;
 
-    background: var(--sage);
+        }
 
-    display: flex;
 
-    align-items: center;
+        .service-icon {
 
-    justify-content: center;
+            width: 52px;
 
-    margin-bottom: 25px;
+            height: 52px;
 
-    font-size: 1.4rem;
+            border-radius: 14px;
 
-}
+            background: var(--sage);
 
+            display: flex;
 
-.service-card h4 {
+            align-items: center;
 
-    font-weight: 700;
+            justify-content: center;
 
-}
+            margin-bottom: 25px;
 
+            font-size: 1.4rem;
 
-.service-card p {
+        }
 
-    color: var(--muted);
 
-    line-height: 1.7;
+        .service-card h4 {
 
-}
+            font-weight: 700;
 
+        }
 
 
-/* =========================================================
-   Instruments
-========================================================= */
+        .service-card p {
 
-.instrument-card {
+            color: var(--muted);
 
-    border: none;
+            line-height: 1.7;
 
-    border-radius: 20px;
+        }
 
-    overflow: hidden;
 
-    background: white;
 
-    box-shadow:
+        /* =========================================================
+           Instruments
+        ========================================================= */
 
-        0 10px 35px rgba(30,50,45,.08);
+        .instrument-card {
 
-    height: 100%;
+            border: none;
 
-    transition: .3s;
+            border-radius: 20px;
 
-}
+            overflow: hidden;
 
+            background: white;
 
-.instrument-card:hover {
+            box-shadow:
 
-    transform: translateY(-6px);
+                0 10px 35px rgba(30,50,45,.08);
 
-    box-shadow:
+            height: 100%;
 
-        0 20px 45px rgba(30,50,45,.14);
+            transition: .3s;
 
-}
+        }
 
 
-.instrument-card img {
+        .instrument-card:hover {
 
-    height: 250px;
+            transform: translateY(-6px);
 
-    width: 100%;
+            box-shadow:
 
-    object-fit: cover;
+                0 20px 45px rgba(30,50,45,.14);
 
-}
+        }
 
 
-.instrument-card .card-body {
+        .instrument-card img {
 
-    padding: 28px;
+            height: 250px;
 
-}
+            width: 100%;
 
+            object-fit: cover;
 
-.instrument-card h4 {
+        }
 
-    font-weight: 750;
 
-}
+        .instrument-card .card-body {
 
+            padding: 28px;
 
-.instrument-card p {
+        }
 
-    color: var(--muted);
 
-    line-height: 1.7;
+        .instrument-card h4 {
 
-}
+            font-weight: 750;
 
+        }
 
-.instrument-link {
 
-    color: var(--forest);
+        .instrument-card p {
 
-    font-weight: 700;
+            color: var(--muted);
 
-    text-decoration: none;
+            line-height: 1.7;
 
-}
+        }
 
 
-.instrument-link:hover {
+        .instrument-link {
 
-    color: var(--forest-dark);
+            color: var(--forest);
 
-}
+            font-weight: 700;
 
+            text-decoration: none;
 
+        }
 
-/* =========================================================
-   Workflow
-========================================================= */
 
-.workflow-item {
+        .instrument-link:hover {
 
-    position: relative;
+            color: var(--forest-dark);
 
-    padding: 30px 20px;
+        }
 
-    background: white;
 
-    border-radius: 18px;
 
-    text-align: center;
+        /* =========================================================
+           Workflow
+        ========================================================= */
 
-    box-shadow:
+        .workflow-item {
 
-        0 8px 25px rgba(30,50,45,.07);
+            position: relative;
 
-}
+            padding: 30px 20px;
 
+            background: white;
 
-.workflow-number {
+            border-radius: 18px;
 
-    font-size: .75rem;
+            text-align: center;
 
-    font-weight: 800;
+            box-shadow:
 
-    letter-spacing: .15em;
+                0 8px 25px rgba(30,50,45,.07);
 
-    color: var(--forest);
+        }
 
-    margin-bottom: 12px;
 
-}
+        .workflow-number {
 
+            font-size: .75rem;
 
+            font-weight: 800;
 
-/* =========================================================
-   Analysis section
-========================================================= */
+            letter-spacing: .15em;
 
-.analysis-box {
+            color: var(--forest);
 
-    background:
+            margin-bottom: 12px;
 
-        linear-gradient(
+        }
 
-            135deg,
 
-            #315f58,
 
-            #244943
+        /* =========================================================
+           Analysis Section
+        ========================================================= */
 
-        );
+        .analysis-box {
 
-    color: white;
+            background:
 
-    border-radius: 28px;
+                linear-gradient(
 
-    padding: 60px;
+                    135deg,
 
-}
+                    #315f58,
 
+                    #244943
 
-.analysis-box p {
+                );
 
-    color: rgba(255,255,255,.8);
+            color: white;
 
-    line-height: 1.9;
+            border-radius: 28px;
 
-}
+            padding: 60px;
 
+        }
 
 
-/* =========================================================
-   Footer
-========================================================= */
+        .analysis-box p {
 
-footer {
+            color: rgba(255,255,255,.8);
 
-    background: #202b28;
+            line-height: 1.9;
 
-    color: white;
+        }
 
-    padding: 60px 0;
 
-}
 
+        /* =========================================================
+           Footer
+        ========================================================= */
 
-footer p {
+        footer {
 
-    color: rgba(255,255,255,.65);
+            background: #202b28;
 
-    line-height: 1.8;
+            color: white;
 
-}
+            padding: 60px 0;
 
+        }
 
-.footer-link {
 
-    color: rgba(255,255,255,.7);
+        footer p {
 
-    text-decoration: none;
+            color: rgba(255,255,255,.65);
 
-}
+            line-height: 1.8;
 
+        }
 
-.footer-link:hover {
 
-    color: white;
+        .footer-link {
 
-}
+            color: rgba(255,255,255,.7);
 
+            text-decoration: none;
 
+        }
 
-/* =========================================================
-   Responsive
-========================================================= */
 
-@media (max-width: 768px) {
+        .footer-link:hover {
 
-    .section {
+            color: white;
 
-        padding: 70px 0;
+        }
 
-    }
 
-    .hero {
 
-        min-height: 85vh;
+        /* =========================================================
+           Responsive
+        ========================================================= */
 
-    }
+        @media (max-width: 768px) {
 
-    .analysis-box {
+            .section {
 
-        padding: 35px;
+                padding: 70px 0;
 
-    }
+            }
 
-}
 
-</style>
+            .hero {
+
+                min-height: 85vh;
+
+            }
+
+
+            .analysis-box {
+
+                padding: 35px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -620,838 +634,899 @@ footer p {
 <body>
 
 
-<!-- =========================================================
-     Navigation
-========================================================= -->
+    <!-- =========================================================
+         Navigation
+    ========================================================= -->
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
 
-<div class="container">
+        <div class="container">
 
-<a class="navbar-brand fw-bold" href="#">
+            <a class="navbar-brand fw-bold" href="#">
 
-    LIVE-CELL IMAGING CORE
+                LIVE-CELL IMAGING CORE
 
-    <small>
-        Institute of Plant and Microbial Biology · Academia Sinica
-    </small>
+                <small>
+                    Institute of Plant and Microbial Biology · Academia Sinica
+                </small>
 
-</a>
+            </a>
 
 
-<button
-    class="navbar-toggler"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#menu">
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
 
-    <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
 
-</button>
+            </button>
 
 
-<div class="collapse navbar-collapse" id="menu">
+            <div
+                class="collapse navbar-collapse"
+                id="menu">
 
+                <ul class="navbar-nav ms-auto align-items-lg-center">
 
-<ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
 
-<li class="nav-item">
-<a class="nav-link" href="#service">
-Services
-</a>
-</li>
+                        <a class="nav-link" href="#service">
+                            Services
+                        </a>
 
-<li class="nav-item">
-<a class="nav-link" href="#instrument">
-Instruments
-</a>
-</li>
+                    </li>
 
-<li class="nav-item">
-<a class="nav-link" href="#analysis">
-Analysis
-</a>
-</li>
 
-<li class="nav-item">
-<a class="nav-link" href="#training">
-Training
-</a>
-</li>
+                    <li class="nav-item">
 
-<li class="nav-item">
-<a class="nav-link" href="#resources">
-Resources
-</a>
-</li>
+                        <a class="nav-link" href="#instrument">
+                            Instruments
+                        </a>
 
-<li class="nav-item">
-<a class="nav-link" href="#contact">
-Contact
-</a>
-</li>
+                    </li>
 
-<li class="nav-item ms-lg-3">
 
-<a
-    class="btn btn-core"
-    href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
-    target="_blank">
+                    <li class="nav-item">
 
-    Book an Instrument ↗
+                        <a class="nav-link" href="#analysis">
+                            Analysis
+                        </a>
 
-</a>
+                    </li>
 
-</li>
 
-</ul>
+                    <li class="nav-item">
 
-</div>
+                        <a class="nav-link" href="#training">
+                            Training
+                        </a>
 
-</div>
+                    </li>
 
-</nav>
 
+                    <li class="nav-item">
 
+                        <a class="nav-link" href="#resources">
+                            Resources
+                        </a>
 
-<!-- =========================================================
-     Hero
-========================================================= -->
+                    </li>
 
-<section class="hero">
 
-<div class="container hero-content">
+                    <li class="nav-item">
 
-<div class="row">
+                        <a class="nav-link" href="#contact">
+                            Contact
+                        </a>
 
-<div class="col-lg-8">
+                    </li>
 
 
-<div class="eyebrow text-light">
+                    <li class="nav-item ms-lg-3">
 
-    Live-Cell Imaging Core Facility
+                        <a
+                            class="btn btn-core"
+                            href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+                            target="_blank">
 
-</div>
+                            Book an Instrument ↗
 
+                        </a>
 
-<h1>
+                    </li>
 
-    Advanced Imaging<br>
+                </ul>
 
-    for Biological Discovery
+            </div>
 
-</h1>
+        </div>
 
+    </nav>
 
-<p class="mt-4">
 
-    Supporting plant, microbial and cellular research through advanced microscopy, live-cell imaging, and quantitative image analysis..
 
-</p>
+    <!-- =========================================================
+         Hero
+    ========================================================= -->
 
+    <section class="hero">
 
-<div class="mt-4">
+        <div class="container hero-content">
 
-<a
-    class="btn btn-core btn-lg me-2"
-    href="#instrument">
+            <div class="row">
 
-    Explore Instruments
+                <div class="col-lg-8">
 
-</a>
+                    <div class="eyebrow text-light">
 
+                        Live-Cell Imaging Core Facility
 
-<a
-    class="btn btn-outline-core btn-lg"
-    href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
-    target="_blank">
+                    </div>
 
-    Book an Instrument ↗
 
-</a>
+                    <h1>
 
-</div>
+                        Advanced Imaging<br>
+                        for Biological Discovery
 
+                    </h1>
 
-</div>
 
-</div>
+                    <p class="mt-4">
 
-</div>
+                        Supporting plant, microbial and cellular research
+                        through advanced microscopy, live-cell imaging,
+                        and quantitative image analysis.
 
-</section>
+                    </p>
 
 
+                    <div class="mt-4">
 
-<!-- =========================================================
-     Services
-========================================================= -->
+                        <a
+                            class="btn btn-core btn-lg me-2"
+                            href="#instrument">
 
-<section class="section" id="service">
+                            Explore Instruments
 
-<div class="container">
+                        </a>
 
 
-<div class="eyebrow">
-What We Do
-</div>
+                        <a
+                            class="btn btn-outline-core btn-lg"
+                            href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+                            target="_blank">
 
-<h2 class="title">
-Imaging Services
-</h2>
+                            Book an Instrument ↗
 
+                        </a>
 
-<div class="row g-4">
+                    </div>
 
+                </div>
 
-<div class="col-md-6 col-lg-3">
+            </div>
 
+        </div>
 
-<a href="services/microscopy.html" class="service-link">
+    </section>
 
-<div class="service-card">
 
-<div class="service-icon">
-🔬
-</div>
 
-<h4>
-Microscopy
-</h4>
+    <!-- =========================================================
+         Services
+    ========================================================= -->
 
-<p>
-High-resolution fluorescence imaging
-for cellular and molecular studies.
-</p>
+    <section
+        class="section"
+        id="service">
 
-</div>
+        <div class="container">
 
-</a>
+            <div class="eyebrow">
+                What We Do
+            </div>
 
-</div>
 
+            <h2 class="title">
+                Imaging Services
+            </h2>
 
 
-<div class="col-md-6 col-lg-3">
+            <div class="row g-4">
 
 
-<a href="services/live-cell.html" class="service-link">
+                <!-- Microscopy -->
 
-<div class="service-card">
+                <div class="col-md-6 col-lg-3">
 
-<div class="service-icon">
-🌱
-</div>
+                    <a
+                        href="services/microscopy.html"
+                        class="service-link">
 
-<h4>
-Live-Cell Imaging
-</h4>
+                        <div class="service-card">
 
-<p>
-Dynamic observation of biological
-processes in living cells and tissues.
-</p>
+                            <div class="service-icon">
+                                🔬
+                            </div>
 
-</div>
+                            <h4>
+                                Microscopy
+                            </h4>
 
-</a>
+                            <p>
+                                High-resolution fluorescence imaging
+                                for cellular and molecular studies.
+                            </p>
 
-</div>
+                        </div>
 
+                    </a>
 
+                </div>
 
-<div class="col-md-6 col-lg-3">
 
+                <!-- Live-Cell Imaging -->
 
-<a href="services/advanced-imaging.html" class="service-link">
- 
-<div class="service-card">
+                <div class="col-md-6 col-lg-3">
 
-<div class="service-icon">
-✦
-</div>
+                    <a
+                        href="services/live-cell.html"
+                        class="service-link">
 
-<h4>
-Advanced Imaging
-</h4>
+                        <div class="service-card">
 
-<p>
-Airyscan, spectral imaging,
-FLIM and other advanced techniques.
-</p>
+                            <div class="service-icon">
+                                🌱
+                            </div>
 
-</div>
+                            <h4>
+                                Live-Cell Imaging
+                            </h4>
 
-</a>
+                            <p>
+                                Dynamic observation of biological
+                                processes in living cells and tissues.
+                            </p>
 
-</div>
+                        </div>
 
+                    </a>
 
+                </div>
 
-<div class="col-md-6 col-lg-3">
 
+                <!-- Advanced Imaging -->
 
+                <div class="col-md-6 col-lg-3">
 
-<a href="services/image-analysis.html" class="service-link">
+                    <a
+                        href="services/advanced-imaging.html"
+                        class="service-link">
 
-<div class="service-card">
+                        <div class="service-card">
 
-<div class="service-icon">
-◎
-</div>
+                            <div class="service-icon">
+                                ✦
+                            </div>
 
-<h4>
-Image Analysis
-</h4>
+                            <h4>
+                                Advanced Imaging
+                            </h4>
 
-<p>
-Quantitative image analysis,
-segmentation and AI-assisted workflows.
-</p>
+                            <p>
+                                Airyscan, spectral imaging,
+                                FLIM and other advanced techniques.
+                            </p>
 
-</div>
+                        </div>
 
-</div>
+                    </a>
 
-</a>
+                </div>
 
-</div>
 
-</div>
+                <!-- Image Analysis -->
 
-</section>
+                <div class="col-md-6 col-lg-3">
 
+                    <a
+                        href="services/image-analysis.html"
+                        class="service-link">
 
+                        <div class="service-card">
 
-<!-- =========================================================
-     Instruments
-========================================================= -->
+                            <div class="service-icon">
+                                ◎
+                            </div>
 
-<section
-    class="section section-soft"
-    id="instrument">
+                            <h4>
+                                Image Analysis
+                            </h4>
 
-<div class="container">
+                            <p>
+                                Quantitative image analysis,
+                                segmentation and AI-assisted workflows.
+                            </p>
 
+                        </div>
 
-<div class="eyebrow">
-Our Platform
-</div>
+                    </a>
 
-<h2 class="title">
-Featured Instruments
-</h2>
+                </div>
 
 
-<div class="row g-4">
+            </div>
 
+        </div>
 
-<div class="col-lg-4">
+    </section>
 
-<div class="instrument-card">
 
 
-<img
-src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
-alt="Microscopy">
+    <!-- =========================================================
+         Instruments
+    ========================================================= -->
 
+    <section
+        class="section section-soft"
+        id="instrument">
 
-<div class="card-body">
+        <div class="container">
 
-<h4>
-ZEISS LSM 880 Airyscan
-</h4>
+            <div class="eyebrow">
+                Our Platform
+            </div>
 
-<p>
-High-resolution confocal imaging
-with Airyscan detection.
-</p>
 
-<a
-href="#"
-class="instrument-link">
+            <h2 class="title">
+                Featured Instruments
+            </h2>
 
-Explore instrument →
 
-</a>
+            <div class="row g-4">
 
-</div>
 
-</div>
+                <!-- ZEISS LSM 880 -->
 
-</div>
+                <div class="col-lg-4">
 
+                    <div class="instrument-card">
 
+                        <img
+                            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
+                            alt="ZEISS LSM 880 Airyscan">
 
-<div class="col-lg-4">
 
-<div class="instrument-card">
+                        <div class="card-body">
 
+                            <h4>
+                                ZEISS LSM 880 Airyscan
+                            </h4>
 
-<img
-src="https://images.unsplash.com/photo-1518152006812-edab29b069ac"
-alt="Microscopy">
+                            <p>
+                                High-resolution confocal imaging
+                                with Airyscan detection.
+                            </p>
 
+                            <a
+                                href="#"
+                                class="instrument-link">
 
-<div class="card-body">
+                                Explore instrument →
 
-<h4>
-Leica STELLARIS 8
-</h4>
+                            </a>
 
-<p>
-White light laser spectral imaging
-and FLIM capability.
-</p>
+                        </div>
 
-<a
-href="#"
-class="instrument-link">
+                    </div>
 
-Explore instrument →
+                </div>
 
-</a>
 
-</div>
 
-</div>
+                <!-- Leica STELLARIS 8 -->
 
-</div>
+                <div class="col-lg-4">
 
+                    <a
+                        href="instruments/stellaris8.html"
+                        class="service-link">
 
+                        <div class="instrument-card">
 
-<div class="col-lg-4">
+                            <img
+                                src="https://images.unsplash.com/photo-1518152006812-edab29b069ac"
+                                alt="Leica STELLARIS 8">
 
-<div class="instrument-card">
 
+                            <div class="card-body">
 
-<img
-src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8"
-alt="Microscopy">
+                                <h4>
+                                    Leica STELLARIS 8
+                                </h4>
 
+                                <p>
+                                    White-light laser confocal imaging,
+                                    spectral detection, FLIM and FRAP.
+                                </p>
 
-<div class="card-body">
+                                <span class="instrument-link">
 
-<h4>
-Olympus FV3000
-</h4>
+                                    Explore instrument →
 
-<p>
-Multiplex fluorescence microscopy
-for advanced biological imaging.
-</p>
+                                </span>
 
-<a
-href="#"
-class="instrument-link">
+                            </div>
 
-Explore instrument →
+                        </div>
 
-</a>
+                    </a>
 
-</div>
+                </div>
 
-</div>
 
-</div>
 
+                <!-- Olympus FV3000 -->
 
-</div>
+                <div class="col-lg-4">
 
-</div>
+                    <div class="instrument-card">
 
-</section>
+                        <img
+                            src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8"
+                            alt="Olympus FV3000">
 
 
+                        <div class="card-body">
 
-<!-- =========================================================
-     Workflow
-========================================================= -->
+                            <h4>
+                                Olympus FV3000
+                            </h4>
 
-<section class="section">
+                            <p>
+                                Multiplex fluorescence microscopy
+                                for advanced biological imaging.
+                            </p>
 
-<div class="container">
+                            <a
+                                href="#"
+                                class="instrument-link">
 
+                                Explore instrument →
 
-<div class="eyebrow">
-From Question to Data
-</div>
+                            </a>
 
-<h2 class="title">
-Imaging Workflow
-</h2>
+                        </div>
 
+                    </div>
 
-<div class="row g-3">
+                </div>
 
 
-<div class="col-md">
+            </div>
 
-<div class="workflow-item">
 
-<div class="workflow-number">
-01
-</div>
+            <!-- View All Instruments -->
 
-<strong>
-Research Question
-</strong>
+            <div class="text-center mt-5">
 
-</div>
+                <a
+                    href="instruments.html"
+                    class="btn btn-outline-success">
 
-</div>
+                    View All Instruments →
 
+                </a>
 
+            </div>
 
-<div class="col-md">
+        </div>
 
-<div class="workflow-item">
+    </section>
 
-<div class="workflow-number">
-02
-</div>
 
-<strong>
-Consultation
-</strong>
 
-</div>
+    <!-- =========================================================
+         Workflow
+    ========================================================= -->
 
-</div>
+    <section class="section">
 
+        <div class="container">
 
+            <div class="eyebrow">
+                From Question to Data
+            </div>
 
-<div class="col-md">
 
-<div class="workflow-item">
+            <h2 class="title">
+                Imaging Workflow
+            </h2>
 
-<div class="workflow-number">
-03
-</div>
 
-<strong>
-Microscopy
-</strong>
+            <div class="row g-3">
 
-</div>
 
-</div>
+                <div class="col-md">
 
+                    <div class="workflow-item">
 
+                        <div class="workflow-number">
+                            01
+                        </div>
 
-<div class="col-md">
+                        <strong>
+                            Research Question
+                        </strong>
 
-<div class="workflow-item">
+                    </div>
 
-<div class="workflow-number">
-04
-</div>
+                </div>
 
-<strong>
-Image Analysis
-</strong>
 
-</div>
 
-</div>
+                <div class="col-md">
 
+                    <div class="workflow-item">
 
+                        <div class="workflow-number">
+                            02
+                        </div>
 
-<div class="col-md">
+                        <strong>
+                            Consultation
+                        </strong>
 
-<div class="workflow-item">
+                    </div>
 
-<div class="workflow-number">
-05
-</div>
+                </div>
 
-<strong>
-Quantification
-</strong>
 
-</div>
 
-</div>
+                <div class="col-md">
 
+                    <div class="workflow-item">
 
-</div>
+                        <div class="workflow-number">
+                            03
+                        </div>
 
-</div>
+                        <strong>
+                            Microscopy
+                        </strong>
 
-</section>
+                    </div>
 
+                </div>
 
 
-<!-- =========================================================
-     Analysis
-========================================================= -->
 
-<section
-    class="section section-soft"
-    id="analysis">
+                <div class="col-md">
 
-<div class="container">
+                    <div class="workflow-item">
 
-<div class="analysis-box">
+                        <div class="workflow-number">
+                            04
+                        </div>
 
+                        <strong>
+                            Image Analysis
+                        </strong>
 
-<div class="eyebrow text-light">
-Beyond Acquisition
-</div>
+                    </div>
 
+                </div>
 
-<h2 class="display-6 fw-bold">
 
-    From Imaging to<br>
-    Quantitative Biology
 
-</h2>
+                <div class="col-md">
 
+                    <div class="workflow-item">
 
-<p class="fs-5 mt-4">
+                        <div class="workflow-number">
+                            05
+                        </div>
 
-    Beyond image acquisition, we support
-    advanced analysis workflows including
-    segmentation, tracking, 3D reconstruction,
-    quantitative analysis and AI-assisted
-    image interpretation.
+                        <strong>
+                            Quantification
+                        </strong>
 
-</p>
+                    </div>
 
+                </div>
 
-<a
-href="#"
-class="btn btn-light rounded-pill px-4 mt-3">
 
-Explore Image Analysis →
+            </div>
 
-</a>
+        </div>
 
+    </section>
 
-</div>
 
-</div>
 
-</section>
+    <!-- =========================================================
+         Analysis
+    ========================================================= -->
 
+    <section
+        class="section section-soft"
+        id="analysis">
 
+        <div class="container">
 
-<!-- =========================================================
-     Training
-========================================================= -->
+            <div class="analysis-box">
 
-<section
-    class="section"
-    id="training">
+                <div class="eyebrow text-light">
+                    Beyond Acquisition
+                </div>
 
-<div class="container">
 
+                <h2 class="display-6 fw-bold">
 
-<div class="eyebrow">
-Learn With Us
-</div>
+                    From Imaging to<br>
+                    Quantitative Biology
 
-<h2 class="title">
-Training & Consultation
-</h2>
+                </h2>
 
 
-<div class="row">
+                <p class="fs-5 mt-4">
 
+                    Beyond image acquisition, we support
+                    advanced analysis workflows including
+                    segmentation, tracking, 3D reconstruction,
+                    quantitative analysis and AI-assisted
+                    image interpretation.
 
-<div class="col-lg-8">
+                </p>
 
-<p class="lead-text">
 
-    We provide hands-on instrument training,
-    imaging consultation, image acquisition
-    guidance, and troubleshooting support.
+                <a
+                    href="#"
+                    class="btn btn-light rounded-pill px-4 mt-3">
 
-</p>
+                    Explore Image Analysis →
 
-</div>
+                </a>
 
+            </div>
 
-</div>
+        </div>
 
-</div>
+    </section>
 
-</section>
 
 
+    <!-- =========================================================
+         Training
+    ========================================================= -->
 
-<!-- =========================================================
-     Resources
-========================================================= -->
+    <section
+        class="section"
+        id="training">
 
-<section
-    class="section section-soft"
-    id="resources">
+        <div class="container">
 
-<div class="container">
+            <div class="eyebrow">
+                Learn With Us
+            </div>
 
 
-<div class="eyebrow">
-Knowledge Base
-</div>
+            <h2 class="title">
+                Training & Consultation
+            </h2>
 
-<h2 class="title">
-Resources
-</h2>
 
+            <div class="row">
 
-<div class="row g-4">
+                <div class="col-lg-8">
 
+                    <p class="lead-text">
 
-<div class="col-md-4">
+                        We provide hands-on instrument training,
+                        imaging consultation, image acquisition
+                        guidance, and troubleshooting support.
 
-<div class="service-card">
+                    </p>
 
-<h4>
-Operation Manuals
-</h4>
+                </div>
 
-<p>
-Instrument manuals and training materials.
-</p>
+            </div>
 
-<a href="#" class="instrument-link">
-View resources →
-</a>
+        </div>
 
-</div>
+    </section>
 
-</div>
 
 
+    <!-- =========================================================
+         Resources
+    ========================================================= -->
 
-<div class="col-md-4">
+    <section
+        class="section section-soft"
+        id="resources">
 
-<div class="service-card">
+        <div class="container">
 
-<h4>
-Image Analysis
-</h4>
+            <div class="eyebrow">
+                Knowledge Base
+            </div>
 
-<p>
-Software, workflows and analysis resources.
-</p>
 
-<a href="#analysis" class="instrument-link">
-Explore analysis →
-</a>
+            <h2 class="title">
+                Resources
+            </h2>
 
-</div>
 
-</div>
+            <div class="row g-4">
 
 
+                <div class="col-md-4">
 
-<div class="col-md-4">
+                    <div class="service-card">
 
-<div class="service-card">
+                        <h4>
+                            Operation Manuals
+                        </h4>
 
-<h4>
-Frequently Asked Questions
-</h4>
+                        <p>
+                            Instrument manuals and training materials.
+                        </p>
 
-<p>
-Common questions about imaging and facility use.
-</p>
+                        <a
+                            href="#"
+                            class="instrument-link">
 
-<a href="#" class="instrument-link">
-View FAQ →
-</a>
+                            View resources →
 
-</div>
+                        </a>
 
-</div>
+                    </div>
 
+                </div>
 
-</div>
 
-</div>
 
-</section>
+                <div class="col-md-4">
 
+                    <div class="service-card">
 
+                        <h4>
+                            Image Analysis
+                        </h4>
 
-<!-- =========================================================
-     Contact
-========================================================= -->
+                        <p>
+                            Software, workflows and analysis resources.
+                        </p>
 
-<footer id="contact">
+                        <a
+                            href="#analysis"
+                            class="instrument-link">
 
-<div class="container">
+                            Explore analysis →
 
-<div class="row g-5">
+                        </a>
 
+                    </div>
 
-<div class="col-lg-7">
+                </div>
 
-<h3 class="fw-bold">
-Live-Cell Imaging Core Facility
-</h3>
 
-<p class="mt-3">
 
-Institute of Plant and Microbial Biology<br>
-Academia Sinica<br>
-Taipei, Taiwan
+                <div class="col-md-4">
 
-</p>
+                    <div class="service-card">
 
-</div>
+                        <h4>
+                            Frequently Asked Questions
+                        </h4>
 
+                        <p>
+                            Common questions about imaging
+                            and facility use.
+                        </p>
 
-<div class="col-lg-5">
+                        <a
+                            href="#"
+                            class="instrument-link">
 
-<h5>
-Need an imaging consultation?
-</h5>
+                            View FAQ →
 
-<p>
+                        </a>
 
-Have a biological question
-and not sure which imaging approach
-is right for your experiment?
+                    </div>
 
-</p>
+                </div>
 
 
-<a
-href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
-target="_blank"
-class="btn btn-core">
+            </div>
 
-Book an Instrument ↗
+        </div>
 
-</a>
+    </section>
 
-</div>
 
 
-</div>
+    <!-- =========================================================
+         Contact / Footer
+    ========================================================= -->
 
+    <footer id="contact">
 
-<hr class="my-5 opacity-25">
+        <div class="container">
 
+            <div class="row g-5">
 
-<div class="small opacity-50">
 
-© Academia Sinica · Institute of Plant and Microbial Biology
+                <div class="col-lg-7">
 
-</div>
+                    <h3 class="fw-bold">
+                        Live-Cell Imaging Core Facility
+                    </h3>
 
-</div>
+                    <p class="mt-3">
 
-</footer>
+                        Institute of Plant and Microbial Biology<br>
+                        Academia Sinica<br>
+                        Taipei, Taiwan
 
+                    </p>
 
+                </div>
 
-<script
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
+
+
+                <div class="col-lg-5">
+
+                    <h5>
+                        Need an imaging consultation?
+                    </h5>
+
+                    <p>
+
+                        Have a biological question
+                        and not sure which imaging approach
+                        is right for your experiment?
+
+                    </p>
+
+
+                    <a
+                        href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+                        target="_blank"
+                        class="btn btn-core">
+
+                        Book an Instrument ↗
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <hr class="my-5 opacity-25">
+
+
+            <div class="small opacity-50">
+
+                © Academia Sinica · Institute of Plant and Microbial Biology
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
 
 
 </body>
