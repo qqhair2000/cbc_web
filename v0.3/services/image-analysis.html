@@ -1,2 +1,1909 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-TW">
 
-Coming Soon
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image Analysis | Live-Cell Imaging Core Facility</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../images/favicon2.png">
+
+    <style>
+
+        /* =========================================================
+           Base
+        ========================================================= */
+
+        :root {
+
+            --ink: #26332f;
+            --muted: #66736f;
+
+            --forest: #315f58;
+            --forest-dark: #244943;
+
+            --sage: #dfe9e5;
+            --mist: #f3f6f4;
+
+            --warm: #e7c98b;
+
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                "Noto Sans TC",
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            color: var(--ink);
+
+            background: #ffffff;
+
+        }
+
+
+
+        /* =========================================================
+           Navigation
+        ========================================================= */
+
+        .navbar {
+
+            background: rgba(30, 42, 39, .94) !important;
+
+            backdrop-filter: blur(12px);
+
+        }
+
+
+        .navbar-brand {
+
+            letter-spacing: .04em;
+
+        }
+
+
+        .navbar-brand small {
+
+            display: block;
+
+            font-size: .65rem;
+
+            font-weight: 400;
+
+            opacity: .65;
+
+            letter-spacing: .08em;
+
+        }
+
+
+        .nav-link {
+
+            margin-left: 10px;
+
+            transition: .25s;
+
+        }
+
+
+        .nav-link:hover {
+
+            color: var(--warm) !important;
+
+        }
+
+
+
+        /* =========================================================
+           Hero
+        ========================================================= */
+
+        .hero {
+
+            min-height: 70vh;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(24,34,31,.80),
+                    rgba(24,34,31,.35)
+                ),
+
+                url("../images/image-analysis-hero.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            align-items: center;
+
+            color: white;
+
+            position: relative;
+
+        }
+
+
+        .hero-content {
+
+            padding-top: 70px;
+
+        }
+
+
+        .hero h1 {
+
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
+
+            line-height: 1.05;
+
+            font-weight: 800;
+
+            letter-spacing: -.03em;
+
+        }
+
+
+        .hero p {
+
+            font-size: 1.15rem;
+
+            max-width: 720px;
+
+            color: rgba(255,255,255,.86);
+
+            line-height: 1.8;
+
+        }
+
+
+
+        /* =========================================================
+           Buttons
+        ========================================================= */
+
+        .btn-core {
+
+            background: var(--forest);
+
+            color: white;
+
+            border: none;
+
+            padding: 13px 25px;
+
+            border-radius: 50px;
+
+            transition: .25s;
+
+        }
+
+
+        .btn-core:hover {
+
+            background: var(--forest-dark);
+
+            color: white;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .btn-outline-core {
+
+            color: white;
+
+            border: 1px solid rgba(255,255,255,.65);
+
+            padding: 13px 25px;
+
+            border-radius: 50px;
+
+            transition: .25s;
+
+        }
+
+
+        .btn-outline-core:hover {
+
+            background: white;
+
+            color: var(--ink);
+
+        }
+
+
+
+        /* =========================================================
+           Sections
+        ========================================================= */
+
+        .section {
+
+            padding: 100px 0;
+
+        }
+
+
+        .section-soft {
+
+            background: var(--mist);
+
+        }
+
+
+        .eyebrow {
+
+            font-size: .78rem;
+
+            font-weight: 700;
+
+            letter-spacing: .18em;
+
+            text-transform: uppercase;
+
+            color: var(--forest);
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .title {
+
+            font-size: 2.4rem;
+
+            font-weight: 800;
+
+            letter-spacing: -.02em;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .lead-text {
+
+            color: var(--muted);
+
+            font-size: 1.08rem;
+
+            line-height: 1.9;
+
+        }
+
+
+
+        /* =========================================================
+           Capability Cards
+        ========================================================= */
+
+        .capability-card {
+
+            border: none;
+
+            border-radius: 20px;
+
+            padding: 32px;
+
+            height: 100%;
+
+            background: white;
+
+            box-shadow:
+
+                0 12px 35px rgba(30,50,45,.08);
+
+            transition:
+
+                transform .3s ease,
+
+                box-shadow .3s ease;
+
+        }
+
+
+        .capability-card:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow:
+
+                0 20px 45px rgba(30,50,45,.14);
+
+        }
+
+
+        .capability-icon {
+
+            width: 54px;
+
+            height: 54px;
+
+            border-radius: 15px;
+
+            background: var(--sage);
+
+            color: var(--forest);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 24px;
+
+        }
+
+
+        .capability-icon svg {
+
+            width: 28px;
+
+            height: 28px;
+
+        }
+
+
+        .capability-card h4 {
+
+            font-weight: 700;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .capability-card p {
+
+            color: var(--muted);
+
+            line-height: 1.75;
+
+            margin-bottom: 0;
+
+        }
+
+
+
+        /* =========================================================
+           Platform Cards
+        ========================================================= */
+
+        .platform-card {
+
+            padding: 30px;
+
+            height: 100%;
+
+            background: white;
+
+            border-radius: 18px;
+
+            box-shadow:
+
+                0 8px 25px rgba(30,50,45,.07);
+
+            transition: .3s;
+
+        }
+
+
+        .platform-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+
+                0 16px 35px rgba(30,50,45,.12);
+
+        }
+
+
+        .platform-card h4 {
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .platform-card p {
+
+            color: var(--muted);
+
+            line-height: 1.75;
+
+            margin-bottom: 0;
+
+        }
+
+
+        .platform-tag {
+
+            display: inline-block;
+
+            margin-top: 18px;
+
+            padding: 6px 12px;
+
+            background: var(--sage);
+
+            color: var(--forest-dark);
+
+            border-radius: 50px;
+
+            font-size: .78rem;
+
+            font-weight: 700;
+
+        }
+
+
+
+        /* =========================================================
+           Feature Section
+        ========================================================= */
+
+        .feature-box {
+
+            background: white;
+
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            box-shadow:
+
+                0 12px 40px rgba(30,50,45,.08);
+
+        }
+
+
+        .feature-box img {
+
+            width: 100%;
+
+            height: 100%;
+
+            min-height: 380px;
+
+            object-fit: cover;
+
+        }
+
+
+        .feature-content {
+
+            padding: 50px;
+
+        }
+
+
+        .feature-content h3 {
+
+            font-weight: 800;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .feature-content p {
+
+            color: var(--muted);
+
+            line-height: 1.85;
+
+        }
+
+
+        .feature-list {
+
+            list-style: none;
+
+            padding: 0;
+
+            margin: 30px 0 0 0;
+
+        }
+
+
+        .feature-list li {
+
+            padding: 10px 0;
+
+            border-bottom: 1px solid #e8eeeb;
+
+            color: var(--muted);
+
+        }
+
+
+        .feature-list li:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .feature-list li::before {
+
+            content: "→";
+
+            color: var(--forest);
+
+            font-weight: 800;
+
+            margin-right: 12px;
+
+        }
+
+
+
+        /* =========================================================
+           Workflow
+        ========================================================= */
+
+        .workflow-item {
+
+            position: relative;
+
+            padding: 30px 20px;
+
+            background: white;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            height: 100%;
+
+            box-shadow:
+
+                0 8px 25px rgba(30,50,45,.07);
+
+        }
+
+
+        .workflow-number {
+
+            font-size: .75rem;
+
+            font-weight: 800;
+
+            letter-spacing: .15em;
+
+            color: var(--forest);
+
+            margin-bottom: 12px;
+
+        }
+
+
+
+        /* =========================================================
+           Application List
+        ========================================================= */
+
+        .application-list {
+
+            list-style: none;
+
+            padding: 0;
+
+            margin: 0;
+
+        }
+
+
+        .application-list li {
+
+            padding: 18px 0;
+
+            border-bottom: 1px solid #dfe6e3;
+
+            font-weight: 600;
+
+        }
+
+
+        .application-list li::before {
+
+            content: "→";
+
+            color: var(--forest);
+
+            font-weight: 800;
+
+            margin-right: 14px;
+
+        }
+
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta-box {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    var(--forest),
+                    var(--forest-dark)
+                );
+
+            color: white;
+
+            border-radius: 28px;
+
+            padding: 60px;
+
+        }
+
+
+        .cta-box p {
+
+            color: rgba(255,255,255,.8);
+
+            line-height: 1.9;
+
+            max-width: 700px;
+
+        }
+
+
+
+        /* =========================================================
+           Footer
+        ========================================================= */
+
+        footer {
+
+            background: #202b28;
+
+            color: white;
+
+            padding: 60px 0;
+
+        }
+
+
+        footer p {
+
+            color: rgba(255,255,255,.65);
+
+            line-height: 1.8;
+
+        }
+
+
+
+        /* =========================================================
+           Responsive
+        ========================================================= */
+
+        @media (max-width: 768px) {
+
+            .section {
+
+                padding: 70px 0;
+
+            }
+
+
+            .hero {
+
+                min-height: 75vh;
+
+            }
+
+
+            .feature-content {
+
+                padding: 35px;
+
+            }
+
+
+            .cta-box {
+
+                padding: 35px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     Navigation
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+
+        <a
+            class="navbar-brand fw-bold"
+            href="../index.html">
+
+            LIVE-CELL IMAGING CORE
+
+            <small>
+                Institute of Plant and Microbial Biology · Academia Sinica
+            </small>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="menu">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#service">
+
+                        Services
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#instrument">
+
+                        Instruments
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#analysis">
+
+                        Analysis
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#training">
+
+                        Training
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#resources">
+
+                        Resources
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#contact">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item ms-lg-3">
+
+                    <a
+                        class="btn btn-core"
+                        href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+                        target="_blank">
+
+                        Book an Instrument ↗
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     Hero
+========================================================= -->
+
+<section class="hero">
+
+    <div class="container hero-content">
+
+        <div class="row">
+
+            <div class="col-lg-8">
+
+
+                <div class="eyebrow text-light">
+
+                    Image Analysis
+
+                </div>
+
+
+                <h1>
+
+                    From Images<br>
+                    to Quantitative Data
+
+                </h1>
+
+
+                <p class="mt-4">
+
+                    Transform microscopy images into
+                    measurable information through
+                    image processing, segmentation,
+                    quantitative analysis, and
+                    computational workflows.
+
+                </p>
+
+
+                <div class="mt-5">
+
+                    <a
+                        class="btn btn-core btn-lg me-2"
+                        href="#capabilities">
+
+                        Explore Capabilities
+
+                    </a>
+
+
+                    <a
+                        class="btn btn-outline-core btn-lg"
+                        href="#platforms">
+
+                        Analysis Platforms
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Introduction
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-9 text-center">
+
+                <div class="eyebrow">
+
+                    Quantitative Imaging
+
+                </div>
+
+
+                <h2 class="title">
+
+                    Turning Microscopy Data
+                    into Biological Insight
+
+                </h2>
+
+
+                <p class="lead-text">
+
+                    Modern microscopy can generate large,
+                    multidimensional datasets containing
+                    information about cellular structure,
+                    fluorescence, spatial organization,
+                    and biological dynamics.
+
+                    Image analysis helps transform these
+                    datasets into quantitative measurements
+                    that can be used to answer biological
+                    questions.
+
+                </p>
+
+
+                <p class="lead-text mt-4">
+
+                    We support image processing,
+                    segmentation, measurement,
+                    visualization, and automated workflows
+                    across a range of microscopy datasets.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Capabilities
+========================================================= -->
+
+<section
+    class="section section-soft"
+    id="capabilities">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            What We Provide
+
+        </div>
+
+
+        <h2 class="title">
+
+            Image Analysis Capabilities
+
+        </h2>
+
+
+        <div class="row g-4">
+
+
+            <!-- Image Processing -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="28"
+                            height="28"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path d="M6 2a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v1h1a.5.5 0 0 1 .5.5v1h1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5h1v-1A.5.5 0 0 1 4 3h2zm1 1v1h2V3zm-3 2v7h8V5z"/>
+
+                            <path d="M5 7h6v1H5zm0 2h6v1H5z"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h4>
+                        Image Processing
+                    </h4>
+
+
+                    <p>
+
+                        Background correction, denoising,
+                        intensity adjustment, stitching,
+                        filtering, and image enhancement
+                        for downstream analysis.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Segmentation -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="28"
+                            height="28"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path d="M2 2h3v1H3v2H2zm9 0h3v3h-1V3h-2zM2 11h1v2h2v1H2zm11 0h1v3h-3v-1h2z"/>
+
+                            <path d="M5 5h6v6H5z"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h4>
+                        Segmentation & Object Detection
+                    </h4>
+
+
+                    <p>
+
+                        Identify cells, nuclei, organelles,
+                        colonies, and other structures for
+                        object-based analysis and measurement.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Quantitative Analysis -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="28"
+                            height="28"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path d="M0 0h1v15h15v1H0z"/>
+
+                            <path d="M3 12V8h2v4zm4 0V5h2v7zm4 0V2h2v10z"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h4>
+                        Quantitative Analysis
+                    </h4>
+
+
+                    <p>
+
+                        Measure intensity, area,
+                        morphology, colocalization,
+                        object counts, and spatial
+                        relationships.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 3D Analysis -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="28"
+                            height="28"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path d="M8 0 1 4v8l7 4 7-4V4zm0 1.15L13.5 4 8 7.15 2.5 4zM2 4.87l5.5 3.14v6.61L2 11.5zm6.5 9.75V8.01L14 4.87v6.64z"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h4>
+                        3D Image Analysis
+                    </h4>
+
+
+                    <p>
+
+                        Analyze Z-stacks and volumetric
+                        datasets through 3D visualization,
+                        reconstruction, and quantitative
+                        measurements.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AI -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="28"
+                            height="28"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path d="M8 1a3 3 0 0 0-3 3v1H4a3 3 0 0 0 0 6h1v1a3 3 0 0 0 6 0v-1h1a3 3 0 0 0 0-6h-1V4a3 3 0 0 0-3-3M6 4a2 2 0 1 1 4 0v1H6zm-2 2h2v4H4a2 2 0 1 1 0-4m4 0h2v4H6V6zm2 5v1a2 2 0 1 1-4 0v-1z"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h4>
+                        AI-Assisted Analysis
+                    </h4>
+
+
+                    <p>
+
+                        Machine-learning and deep-learning
+                        approaches for segmentation,
+                        detection, classification, and
+                        analysis of complex image datasets.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Automation -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="28"
+                            height="28"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path d="M8 1a7 7 0 1 0 7 7h-1a6 6 0 1 1-6-6z"/>
+
+                            <path d="M8 0a.5.5 0 0 1 .5.5V4h3.5a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5v-4A.5.5 0 0 1 8 0"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h4>
+                        Batch & Automated Analysis
+                    </h4>
+
+
+                    <p>
+
+                        Build reproducible workflows for
+                        processing large image datasets,
+                        reducing repetitive manual work
+                        and improving consistency.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Analysis Platforms
+========================================================= -->
+
+<section
+    class="section"
+    id="platforms">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            Analysis Platforms
+
+        </div>
+
+
+        <h2 class="title">
+
+            Tools for Image Analysis
+
+        </h2>
+
+
+        <div class="row g-4">
+
+
+            <!-- Fiji -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="platform-card">
+
+                    <h4>
+                        ImageJ / Fiji
+                    </h4>
+
+                    <p>
+
+                        General image processing,
+                        measurement, visualization,
+                        and plugin-based analysis workflows.
+
+                    </p>
+
+                    <span class="platform-tag">
+                        Image Processing
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- napari -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="platform-card">
+
+                    <h4>
+                        napari
+                    </h4>
+
+                    <p>
+
+                        Interactive visualization and
+                        multidimensional image analysis
+                        for modern microscopy datasets.
+
+                    </p>
+
+                    <span class="platform-tag">
+                        Visualization
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Imaris -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="platform-card">
+
+                    <h4>
+                        Imaris
+                    </h4>
+
+                    <p>
+
+                        3D visualization, object-based
+                        analysis, surface reconstruction,
+                        and quantitative imaging.
+
+                    </p>
+
+                    <span class="platform-tag">
+                        3D Analysis
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Python -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="platform-card">
+
+                    <h4>
+                        Python
+                    </h4>
+
+                    <p>
+
+                        Custom image processing,
+                        automation, batch analysis,
+                        and reproducible computational
+                        workflows.
+
+                    </p>
+
+                    <span class="platform-tag">
+                        Automation
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Feature
+========================================================= -->
+
+<section class="section section-soft">
+
+    <div class="container">
+
+        <div class="feature-box">
+
+            <div class="row g-0 align-items-stretch">
+
+
+                <div class="col-lg-6">
+
+                    <img
+                        src="../images/image-analysis-example.jpg"
+                        alt="Microscopy image analysis">
+
+                </div>
+
+
+                <div class="col-lg-6">
+
+                    <div class="feature-content">
+
+                        <div class="eyebrow">
+
+                            From Pixels to Measurements
+
+                        </div>
+
+
+                        <h3>
+
+                            Extract Quantitative
+                            Information from Images
+
+                        </h3>
+
+
+                        <p>
+
+                            Image analysis can turn complex
+                            microscopy datasets into measurable
+                            biological features. Depending on the
+                            experiment, analysis may involve
+                            individual objects, fluorescence
+                            intensity, morphology, spatial
+                            relationships, or changes over time.
+
+                        </p>
+
+
+                        <ul class="feature-list">
+
+                            <li>
+                                Cell and nucleus measurements
+                            </li>
+
+                            <li>
+                                Organelle morphology and volume
+                            </li>
+
+                            <li>
+                                Fluorescence intensity analysis
+                            </li>
+
+                            <li>
+                                Colocalization and spatial analysis
+                            </li>
+
+                            <li>
+                                Segmentation and object tracking
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Workflow
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            From Dataset to Result
+
+        </div>
+
+
+        <h2 class="title">
+
+            Image Analysis Workflow
+
+        </h2>
+
+
+        <div class="row g-3">
+
+
+            <div class="col-md">
+
+                <div class="workflow-item">
+
+                    <div class="workflow-number">
+                        01
+                    </div>
+
+                    <strong>
+                        Define the Question
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md">
+
+                <div class="workflow-item">
+
+                    <div class="workflow-number">
+                        02
+                    </div>
+
+                    <strong>
+                        Prepare the Dataset
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md">
+
+                <div class="workflow-item">
+
+                    <div class="workflow-number">
+                        03
+                    </div>
+
+                    <strong>
+                        Process & Segment
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md">
+
+                <div class="workflow-item">
+
+                    <div class="workflow-number">
+                        04
+                    </div>
+
+                    <strong>
+                        Measure & Analyze
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md">
+
+                <div class="workflow-item">
+
+                    <div class="workflow-number">
+                        05
+                    </div>
+
+                    <strong>
+                        Interpret Results
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Applications
+========================================================= -->
+
+<section class="section section-soft">
+
+    <div class="container">
+
+        <div class="row g-5">
+
+
+            <div class="col-lg-5">
+
+                <div class="eyebrow">
+
+                    Applications
+
+                </div>
+
+
+                <h2 class="title">
+
+                    What Can Be Analyzed?
+
+                </h2>
+
+
+                <p class="lead-text">
+
+                    Image analysis can be applied to a wide
+                    range of microscopy datasets, from
+                    individual cells to complex
+                    multidimensional biological systems.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-7">
+
+                <ul class="application-list">
+
+                    <li>
+                        Cell and nuclear morphology
+                    </li>
+
+                    <li>
+                        Organelle structure and distribution
+                    </li>
+
+                    <li>
+                        Fluorescence intensity and localization
+                    </li>
+
+                    <li>
+                        Colocalization analysis
+                    </li>
+
+                    <li>
+                        Cell counting and population measurements
+                    </li>
+
+                    <li>
+                        3D structures and volumetric measurements
+                    </li>
+
+                    <li>
+                        Time-resolved image datasets
+                    </li>
+
+                    <li>
+                        Plant and microbial imaging datasets
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+
+            <div class="eyebrow text-light">
+
+                Have an Image Analysis Question?
+
+            </div>
+
+
+            <h2 class="display-6 fw-bold">
+
+                Start with your
+                biological question.
+
+            </h2>
+
+
+            <p class="fs-5 mt-4">
+
+                Not sure how to analyze your microscopy data?
+                Tell us what you would like to measure,
+                and we can help identify an appropriate
+                analysis strategy and workflow.
+
+            </p>
+
+
+            <a
+                href="../index.html#contact"
+                class="btn btn-light rounded-pill px-4 mt-3">
+
+                Contact the Core ↗
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Footer
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-5">
+
+
+            <div class="col-lg-7">
+
+                <h3 class="fw-bold">
+
+                    Live-Cell Imaging Core Facility
+
+                </h3>
+
+
+                <p class="mt-3">
+
+                    Institute of Plant and Microbial Biology<br>
+
+                    Academia Sinica<br>
+
+                    Taipei, Taiwan
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+                <h5>
+
+                    Need help with image analysis?
+
+                </h5>
+
+
+                <p>
+
+                    Have a microscopy dataset and not sure
+                    which analysis approach is right for
+                    your experiment?
+
+                </p>
+
+
+                <a
+                    href="../index.html#contact"
+                    class="btn btn-outline-light rounded-pill">
+
+                    Contact the Core
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <hr class="my-5 opacity-25">
+
+
+        <div class="small opacity-50">
+
+            © Academia Sinica ·
+            Institute of Plant and Microbial Biology
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>
+```

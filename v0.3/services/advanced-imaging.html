@@ -1,1 +1,1464 @@
-Coming Soon
+```html
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Advanced Imaging | Live-Cell Imaging Core Facility | IPMB
+    </title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../images/favicon2.png">
+
+
+    <style>
+
+        /* =========================================================
+           Base
+        ========================================================= */
+
+        :root {
+
+            --ink: #26332f;
+            --muted: #66736f;
+
+            --forest: #315f58;
+            --forest-dark: #244943;
+
+            --sage: #dfe9e5;
+            --mist: #f3f6f4;
+
+            --warm: #e7c98b;
+
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                "Noto Sans TC",
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            color: var(--ink);
+
+            background: #ffffff;
+
+        }
+
+
+
+        /* =========================================================
+           Navigation
+        ========================================================= */
+
+        .navbar {
+
+            background: rgba(30, 42, 39, .94) !important;
+
+            backdrop-filter: blur(12px);
+
+        }
+
+
+        .navbar-brand {
+
+            letter-spacing: .04em;
+
+        }
+
+
+        .navbar-brand small {
+
+            display: block;
+
+            font-size: .65rem;
+
+            font-weight: 400;
+
+            opacity: .65;
+
+            letter-spacing: .08em;
+
+        }
+
+
+        .nav-link {
+
+            margin-left: 10px;
+
+            transition: .25s;
+
+        }
+
+
+        .nav-link:hover {
+
+            color: var(--warm) !important;
+
+        }
+
+
+
+        /* =========================================================
+           Buttons
+        ========================================================= */
+
+        .btn-core {
+
+            background: var(--forest);
+
+            color: white;
+
+            border: none;
+
+            padding: 13px 25px;
+
+            border-radius: 50px;
+
+            transition: .25s;
+
+        }
+
+
+        .btn-core:hover {
+
+            background: var(--forest-dark);
+
+            color: white;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .btn-outline-core {
+
+            color: var(--forest);
+
+            border: 1px solid var(--forest);
+
+            padding: 13px 25px;
+
+            border-radius: 50px;
+
+            transition: .25s;
+
+        }
+
+
+        .btn-outline-core:hover {
+
+            background: var(--forest);
+
+            color: white;
+
+        }
+
+
+
+        /* =========================================================
+           Hero
+        ========================================================= */
+
+        .service-hero {
+
+            padding: 170px 0 110px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(24,34,31,.80),
+                    rgba(24,34,31,.25)
+                ),
+
+                url("../images/live-cell-hero.jpg");
+
+        }
+
+
+        .eyebrow {
+
+            font-size: .78rem;
+
+            font-weight: 700;
+
+            letter-spacing: .18em;
+
+            text-transform: uppercase;
+
+            color: var(--forest);
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .service-hero h1 {
+
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
+
+            line-height: 1.05;
+
+            font-weight: 800;
+
+            letter-spacing: -.03em;
+
+        }
+
+
+        .service-hero .lead {
+
+            max-width: 720px;
+
+            color: var(--muted);
+
+            font-size: 1.2rem;
+
+            line-height: 1.9;
+
+        }
+
+
+        .hero-tag {
+
+            display: inline-block;
+
+            padding: 8px 16px;
+
+            margin: 5px 4px 0 0;
+
+            background: var(--sage);
+
+            color: var(--forest-dark);
+
+            border-radius: 50px;
+
+            font-size: .9rem;
+
+            font-weight: 600;
+
+        }
+
+
+
+        /* =========================================================
+           Sections
+        ========================================================= */
+
+        .section {
+
+            padding: 100px 0;
+
+        }
+
+
+        .section-soft {
+
+            background: var(--mist);
+
+        }
+
+
+        .title {
+
+            font-size: 2.4rem;
+
+            font-weight: 800;
+
+            letter-spacing: -.02em;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .lead-text {
+
+            color: var(--muted);
+
+            font-size: 1.08rem;
+
+            line-height: 1.9;
+
+        }
+
+
+
+        /* =========================================================
+           Capability Cards
+        ========================================================= */
+
+        .capability-card {
+
+            height: 100%;
+
+            padding: 32px;
+
+            background: white;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 12px 35px rgba(30,50,45,.08);
+
+            transition: .3s;
+
+        }
+
+
+        .capability-card:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 20px 45px rgba(30,50,45,.14);
+
+        }
+
+
+        .capability-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            border-radius: 14px;
+
+            background: var(--sage);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 24px;
+
+            font-size: 1.35rem;
+
+            color: var(--forest);
+
+        }
+
+
+        .capability-card h4 {
+
+            font-weight: 700;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .capability-card p {
+
+            color: var(--muted);
+
+            line-height: 1.7;
+
+            margin-bottom: 0;
+
+        }
+
+
+
+        /* =========================================================
+           Application List
+        ========================================================= */
+
+        .application-list {
+
+            list-style: none;
+
+            padding: 0;
+
+            margin: 0;
+
+        }
+
+
+        .application-list li {
+
+            padding: 18px 0;
+
+            border-bottom: 1px solid #dfe6e3;
+
+            font-weight: 600;
+
+        }
+
+
+        .application-list li::before {
+
+            content: "→";
+
+            color: var(--forest);
+
+            font-weight: 800;
+
+            margin-right: 14px;
+
+        }
+
+
+
+        /* =========================================================
+           Instruments
+        ========================================================= */
+
+        .instrument-mini {
+
+            padding: 28px;
+
+            background: white;
+
+            border-radius: 18px;
+
+            height: 100%;
+
+            box-shadow:
+                0 8px 25px rgba(30,50,45,.07);
+
+        }
+
+
+        .instrument-mini h4 {
+
+            font-weight: 700;
+
+        }
+
+
+        .instrument-mini p {
+
+            color: var(--muted);
+
+            line-height: 1.7;
+
+        }
+
+
+        .instrument-mini a {
+
+            color: var(--forest);
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+        }
+
+
+        .instrument-mini a:hover {
+
+            color: var(--forest-dark);
+
+        }
+
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta-box {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    var(--forest),
+                    var(--forest-dark)
+                );
+
+            color: white;
+
+            border-radius: 28px;
+
+            padding: 60px;
+
+        }
+
+
+        .cta-box p {
+
+            color: rgba(255,255,255,.8);
+
+            line-height: 1.8;
+
+            max-width: 700px;
+
+        }
+
+
+
+        /* =========================================================
+           Footer
+        ========================================================= */
+
+        footer {
+
+            background: #202b28;
+
+            color: white;
+
+            padding: 60px 0;
+
+        }
+
+
+        footer p {
+
+            color: rgba(255,255,255,.65);
+
+            line-height: 1.8;
+
+        }
+
+
+
+        /* =========================================================
+           Responsive
+        ========================================================= */
+
+        @media (max-width: 768px) {
+
+            .service-hero {
+
+                padding: 140px 0 80px;
+
+            }
+
+            .section {
+
+                padding: 70px 0;
+
+            }
+
+            .cta-box {
+
+                padding: 35px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     Navigation
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+
+        <a
+            class="navbar-brand fw-bold"
+            href="../index.html">
+
+            LIVE-CELL IMAGING CORE
+
+            <small>
+                Institute of Plant and Microbial Biology · Academia Sinica
+            </small>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="menu">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#service">
+
+                        Services
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#instrument">
+
+                        Instruments
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#analysis">
+
+                        Analysis
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#training">
+
+                        Training
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#resources">
+
+                        Resources
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#contact">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item ms-lg-3">
+
+                    <a
+                        class="btn btn-core"
+                        href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+                        target="_blank">
+
+                        Book an Instrument ↗
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     Hero
+========================================================= -->
+
+<section class="service-hero">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-9">
+
+
+                <div class="eyebrow">
+
+                    Imaging Services
+
+                </div>
+
+
+                <h1>
+
+                    Advanced Imaging
+
+                </h1>
+
+
+                <p class="lead mt-4">
+
+                    Specialized imaging approaches for
+                    high-resolution, spectral and
+                    functional fluorescence studies.
+
+                </p>
+
+
+                <div class="mt-4">
+
+                    <span class="hero-tag">
+                        Airyscan
+                    </span>
+
+                    <span class="hero-tag">
+                        Spectral Imaging
+                    </span>
+
+                    <span class="hero-tag">
+                        FLIM
+                    </span>
+
+                    <span class="hero-tag">
+                        FRET
+                    </span>
+
+                    <span class="hero-tag">
+                        FRAP
+                    </span>
+
+                </div>
+
+
+                <div class="mt-5">
+
+                    <a
+                        href="#capabilities"
+                        class="btn btn-core me-2">
+
+                        Explore Capabilities
+
+                    </a>
+
+
+                    <a
+                        href="../index.html#instrument"
+                        class="btn btn-outline-core">
+
+                        View Instruments
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Overview
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row g-5 align-items-center">
+
+
+            <div class="col-lg-7">
+
+                <div class="eyebrow">
+                    Advanced Fluorescence
+                </div>
+
+                <h2 class="title">
+                    Beyond conventional
+                    fluorescence imaging
+                </h2>
+
+                <p class="lead-text">
+
+                    Advanced imaging techniques can provide
+                    information beyond conventional
+                    fluorescence intensity, including
+                    improved spatial resolution, spectral
+                    separation, fluorescence lifetime and
+                    molecular dynamics.
+
+                </p>
+
+
+                <p class="lead-text">
+
+                    The appropriate approach depends on
+                    your biological question, sample
+                    characteristics and the type of
+                    information required from the experiment.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="28"
+                            height="28"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path d="M5.933.87a2.89 2.89 0 0 1 4.134 0l.622.638.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01zM7.002 11a1 1 0 1 0 2 0 1 1 0 0 0-2 0m1.602-2.027c.04-.534.198-.815.846-1.26.674-.475 1.05-1.09 1.05-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.7 1.7 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-1.325.619-.433.926-.914.926-1.64v-.111c0-.428.208-.745.585-.745.336 0 .504.24.554.627"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h4>
+                        Imaging Consultation
+                    </h4>
+
+
+                    <p>
+
+                        Not sure which advanced imaging
+                        approach is appropriate for your
+                        experiment?
+
+                        We can help evaluate your sample
+                        and identify a suitable imaging
+                        strategy.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Capabilities
+========================================================= -->
+
+<section
+    class="section section-soft"
+    id="capabilities">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+            What We Provide
+        </div>
+
+        <h2 class="title">
+            Advanced Imaging Capabilities
+        </h2>
+
+
+        <div class="row g-4">
+
+
+            <!-- Airyscan -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+                        ✦
+                    </div>
+
+                    <h4>
+                        Airyscan Imaging
+                    </h4>
+
+                    <p>
+
+                        Enhanced spatial resolution and
+                        signal-to-noise for high-resolution
+                        fluorescence imaging.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Spectral -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="28"
+                            height="28"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path d="M2 2.5A.5.5 0 0 1 2.5 2h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 2.5z"/>
+
+                            <path d="M2 6.5A.5.5 0 0 1 2.5 6h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 6.5z"/>
+
+                            <path d="M2 10.5A.5.5 0 0 1 2.5 10h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1 0-.5z"/>
+
+                            <path d="M2 14.5A.5.5 0 0 1 2.5 14h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+
+                        </svg>
+
+                    </div>
+
+                    <h4>
+                        Spectral Imaging
+                    </h4>
+
+                    <p>
+
+                        Spectral detection and separation
+                        of overlapping fluorescence signals
+                        for multiplex imaging.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FLIM -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+                        ◌
+                    </div>
+
+                    <h4>
+                        FLIM
+                    </h4>
+
+                    <p>
+
+                        Fluorescence lifetime imaging for
+                        quantitative measurements of
+                        molecular and cellular environments.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FRET -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+                        ⇄
+                    </div>
+
+                    <h4>
+                        FRET
+                    </h4>
+
+                    <p>
+
+                        Fluorescence resonance energy
+                        transfer imaging for studying
+                        molecular interactions and proximity.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FRAP -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+                        ↔
+                    </div>
+
+                    <h4>
+                        FRAP
+                    </h4>
+
+                    <p>
+
+                        Fluorescence recovery after
+                        photobleaching for analyzing
+                        molecular mobility and dynamics.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Quantitative -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="capability-card">
+
+                    <div class="capability-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="28"
+                            height="28"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path
+                                fill-rule="evenodd"
+                                d="M0 0h1v15h15v1H0V0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5v-4zm-2 4a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5v-4z"/>
+
+                        </svg>
+
+                    </div>
+
+                    <h4>
+                        Quantitative Imaging
+                    </h4>
+
+                    <p>
+
+                        Generate image datasets suitable
+                        for quantitative measurements,
+                        downstream analysis and
+                        biological interpretation.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Applications
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row g-5">
+
+
+            <div class="col-lg-5">
+
+                <div class="eyebrow">
+                    Applications
+                </div>
+
+                <h2 class="title">
+                    What can we investigate?
+                </h2>
+
+                <p class="lead-text">
+
+                    Advanced imaging approaches can be
+                    used when conventional fluorescence
+                    imaging does not provide enough
+                    spatial, spectral or functional
+                    information.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-7">
+
+                <ul class="application-list">
+
+                    <li>
+                        High-resolution cellular structures
+                    </li>
+
+                    <li>
+                        Spectral separation of fluorescent signals
+                    </li>
+
+                    <li>
+                        Fluorescence lifetime changes
+                    </li>
+
+                    <li>
+                        Protein–protein interactions
+                    </li>
+
+                    <li>
+                        Molecular proximity and FRET
+                    </li>
+
+                    <li>
+                        Protein and membrane dynamics
+                    </li>
+
+                    <li>
+                        Molecular mobility and FRAP recovery
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Instruments
+========================================================= -->
+
+<section class="section section-soft">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+            Imaging Platforms
+        </div>
+
+        <h2 class="title">
+            Available Instruments
+        </h2>
+
+
+        <div class="row g-4">
+
+
+            <!-- LSM 880 -->
+
+            <div class="col-md-4">
+
+                <div class="instrument-mini">
+
+                    <h4>
+                        ZEISS LSM 880
+                    </h4>
+
+                    <p>
+
+                        Confocal imaging platform with
+                        Airyscan detection for enhanced
+                        spatial resolution.
+
+                    </p>
+
+                    <a
+                        href="../instruments/lsm880.html">
+
+                        Explore instrument →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STELLARIS -->
+
+            <div class="col-md-4">
+
+                <div class="instrument-mini">
+
+                    <h4>
+                        Leica STELLARIS 8
+                    </h4>
+
+                    <p>
+
+                        White-light laser platform for
+                        spectral imaging, FLIM and
+                        advanced fluorescence applications.
+
+                    </p>
+
+                    <a
+                        href="../instruments/stellaris8.html">
+
+                        Explore instrument →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FV3000 -->
+
+            <div class="col-md-4">
+
+                <div class="instrument-mini">
+
+                    <h4>
+                        Olympus FV3000
+                    </h4>
+
+                    <p>
+
+                        Confocal fluorescence platform
+                        supporting advanced multichannel
+                        biological imaging.
+
+                    </p>
+
+                    <a
+                        href="../instruments/fv3000.html">
+
+                        Explore instrument →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <div class="eyebrow text-light">
+                Need Advanced Imaging?
+            </div>
+
+
+            <h2 class="display-6 fw-bold">
+
+                Start with your
+                biological question.
+
+            </h2>
+
+
+            <p class="fs-5 mt-4">
+
+                Tell us about your sample and what
+                information you would like to obtain.
+                We can help identify an appropriate
+                imaging approach and instrument.
+
+            </p>
+
+
+            <a
+                href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+                target="_blank"
+                class="btn btn-light rounded-pill px-4 mt-3">
+
+                Book an Instrument ↗
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Footer
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-5">
+
+
+            <div class="col-lg-7">
+
+                <h3 class="fw-bold">
+
+                    Live-Cell Imaging Core Facility
+
+                </h3>
+
+
+                <p class="mt-3">
+
+                    Institute of Plant and Microbial Biology<br>
+                    Academia Sinica<br>
+                    Taipei, Taiwan
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+                <h5>
+                    Need an imaging consultation?
+                </h5>
+
+
+                <p>
+
+                    Have a biological question
+                    and not sure which imaging approach
+                    is right for your experiment?
+
+                </p>
+
+
+                <a
+                    href="../index.html"
+                    class="btn btn-outline-light rounded-pill">
+
+                    Back to Home
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <hr class="my-5 opacity-25">
+
+
+        <div class="small opacity-50">
+
+            © Academia Sinica ·
+            Institute of Plant and Microbial Biology
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>
+```
