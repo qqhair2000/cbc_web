@@ -1,1 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Olympus FV3000 | Live-Cell Imaging Core</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../images/favicon2.png">
+
+
+    <style>
+
+    /* =========================================================
+       Global
+    ========================================================= */
+
+    :root {
+
+        --sage: #718f7c;
+        --sage-dark: #506c5b;
+
+        --light: #f5f7f5;
+
+        --text: #26332d;
+
+        --muted: #6d7772;
+
+    }
+
+
+    body {
+
+        font-family:
+            "Noto Sans TC",
+            Arial,
+            sans-serif;
+
+        color: var(--text);
+
+        background: white;
+
+    }
+
+
+    /* =========================================================
+       Navigation
+    ========================================================= */
+
+    .navbar {
+
+        background: rgba(25, 35, 30, .96);
+
+    }
+
+
+    /* =========================================================
+       Hero
+    ========================================================= */
+
+    .instrument-hero {
+
+        padding: 150px 0 90px;
+
+        background: var(--light);
+
+    }
+
+
+    .eyebrow {
+
+        color: var(--sage);
+
+        font-size: .85rem;
+
+        font-weight: 700;
+
+        letter-spacing: .15em;
+
+        text-transform: uppercase;
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .instrument-hero h1 {
+
+        font-size: 3.5rem;
+
+        font-weight: 800;
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .instrument-subtitle {
+
+        font-size: 1.25rem;
+
+        color: var(--muted);
+
+        margin-bottom: 40px;
+
+    }
+
+
+    /* =========================================================
+       Hero Image
+    ========================================================= */
+
+    .hero-image {
+
+        width: 100%;
+
+        height: 520px;
+
+        object-fit: cover;
+
+        border-radius: 24px;
+
+    }
+
+
+    /* =========================================================
+       Section
+    ========================================================= */
+
+    .section {
+
+        padding: 100px 0;
+
+    }
+
+
+    .section-title {
+
+        font-weight: 800;
+
+        margin-bottom: 15px;
+
+    }
+
+
+    .section-intro {
+
+        color: var(--muted);
+
+        max-width: 720px;
+
+        line-height: 1.8;
+
+    }
+
+
+    /* =========================================================
+       Technology Tags
+    ========================================================= */
+
+    .tech-list {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 12px;
+
+        margin-top: 30px;
+
+    }
+
+
+    .tech-tag {
+
+        padding: 10px 18px;
+
+        border-radius: 30px;
+
+        background: #e8eee9;
+
+        color: var(--sage-dark);
+
+        font-weight: 600;
+
+    }
+
+
+    /* =========================================================
+       Detail Images
+    ========================================================= */
+
+    .detail-image {
+
+        width: 100%;
+
+        height: 320px;
+
+        object-fit: cover;
+
+        border-radius: 20px;
+
+    }
+
+
+    .detail-caption {
+
+        margin-top: 15px;
+
+        color: var(--muted);
+
+        font-size: .95rem;
+
+    }
+
+
+    /* =========================================================
+       Capabilities
+    ========================================================= */
+
+    .capability {
+
+        padding: 25px 0;
+
+        border-bottom: 1px solid #e5e9e6;
+
+    }
+
+
+    .capability h4 {
+
+        font-weight: 700;
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .capability p {
+
+        color: var(--muted);
+
+        margin-bottom: 0;
+
+        line-height: 1.7;
+
+    }
+
+
+    /* =========================================================
+       Data Image
+    ========================================================= */
+
+    .data-image {
+
+        width: 100%;
+
+        max-height: 650px;
+
+        object-fit: contain;
+
+        border-radius: 20px;
+
+        background: #111;
+
+    }
+
+
+    .data-caption {
+
+        margin-top: 15px;
+
+        color: var(--muted);
+
+    }
+
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .cta {
+
+        background: var(--sage);
+
+        color: white;
+
+        padding: 80px 0;
+
+    }
+
+
+    .cta h2 {
+
+        font-weight: 800;
+
+    }
+
+
+    .cta .btn {
+
+        margin-top: 20px;
+
+    }
+
+
+    /* =========================================================
+       Footer
+    ========================================================= */
+
+    footer {
+
+        background: #18201c;
+
+        color: white;
+
+        padding: 50px 0;
+
+    }
+
+
+    footer p {
+
+        color: #b8c0bb;
+
+    }
+
+
+    /* =========================================================
+       Responsive
+    ========================================================= */
+
+    @media (max-width: 768px) {
+
+        .instrument-hero h1 {
+
+            font-size: 2.5rem;
+
+        }
+
+
+        .hero-image {
+
+            height: 350px;
+
+        }
+
+    }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     Navigation
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+
+
+        <a
+            class="navbar-brand fw-bold"
+            href="../index.html">
+
+            Live-Cell Imaging Core
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="menu">
+
+
+            <ul class="navbar-nav ms-auto">
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="../index.html#instrument">
+
+                        Instruments
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#service">
+
+                        Services
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#analysis">
+
+                        Analysis
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#contact">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     Instrument Hero
+========================================================= -->
+
+<section class="instrument-hero">
+
+    <div class="container">
+
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-lg-5">
+
+
+                <div class="eyebrow">
+
+                    Instrument
+
+                </div>
+
+
+                <h1>
+
+                    Olympus FV3000
+
+                </h1>
+
+
+                <p class="instrument-subtitle">
+
+                    Confocal laser scanning microscope
+                    for multichannel and live-cell imaging
+
+                </p>
+
+
+                <p class="section-intro">
+
+                    A versatile confocal imaging platform
+                    for multichannel fluorescence imaging,
+                    live-cell microscopy, three-dimensional
+                    imaging, and fluorescence dynamics.
+
+                </p>
+
+
+                <div class="tech-list">
+
+
+                    <span class="tech-tag">
+
+                        Confocal
+
+                    </span>
+
+
+                    <span class="tech-tag">
+
+                        Live-Cell
+
+                    </span>
+
+
+                    <span class="tech-tag">
+
+                        Silicone Oil
+
+                    </span>
+
+
+                    <span class="tech-tag">
+
+                        Multichannel
+
+                    </span>
+
+
+                    <span class="tech-tag">
+
+                        FRAP
+
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="col-lg-7">
+
+
+                <img
+                    src="../images/fv3000/olympus-fv3000.jpg"
+                    class="hero-image"
+                    alt="Olympus FV3000 confocal microscope">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Technology
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            Technology
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Imaging Capabilities
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            The FV3000 combines laser scanning confocal
+            microscopy with sensitive fluorescence detection
+            and flexible multichannel imaging, supporting
+            a wide range of biological applications.
+
+        </p>
+
+
+        <div class="row g-4 mt-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="capability">
+
+                    <h4>
+                        Confocal Imaging
+                    </h4>
+
+                    <p>
+
+                        Optical sectioning for high-resolution
+                        fluorescence imaging of cells, tissues,
+                        and biological structures.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="capability">
+
+                    <h4>
+                        Multichannel Fluorescence
+                    </h4>
+
+                    <p>
+
+                        Acquire multiple fluorescence channels
+                        for localization, colocalization,
+                        and multicolor imaging experiments.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="capability">
+
+                    <h4>
+                        Spectral Detection
+                    </h4>
+
+                    <p>
+
+                        Spectral detection and fluorescence
+                        separation support multicolor experiments
+                        with overlapping emission signals.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="col-md-6">
+
+
+                <div class="capability">
+
+                    <h4>
+                        Live-Cell Imaging
+                    </h4>
+
+                    <p>
+
+                        Time-resolved fluorescence imaging
+                        for monitoring cellular morphology,
+                        behavior, and dynamic biological processes.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="capability">
+
+                    <h4>
+                        FRAP
+                    </h4>
+
+                    <p>
+
+                        Fluorescence recovery after photobleaching
+                        for investigating molecular mobility,
+                        diffusion, and fluorescence dynamics.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="capability">
+
+                    <h4>
+                        Three-Dimensional Imaging
+                    </h4>
+
+                    <p>
+
+                        Z-stack acquisition and optical sectioning
+                        for three-dimensional visualization of
+                        cells, tissues, and biological structures.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Live-Cell Imaging
+========================================================= -->
+
+<section class="section bg-light">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            Live-Cell Imaging
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Silicone Immersion for Live-Cell Imaging
+
+        </h2>
+
+
+        <div class="row g-5 align-items-center mt-3">
+
+
+            <div class="col-lg-6">
+
+
+                <img
+                    src="../images/fv3000/fv3000-silicone-objective.jpg"
+                    class="detail-image"
+                    alt="Olympus silicone immersion objective">
+
+
+                <p class="detail-caption">
+
+                    Silicone immersion objective for
+                    high-resolution live-cell imaging.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="col-lg-6">
+
+
+                <h3 class="fw-bold mb-4">
+
+                    High-resolution imaging
+                    of living samples
+
+                </h3>
+
+
+                <p class="section-intro">
+
+                    Silicone immersion objectives provide
+                    a refractive index closer to living
+                    biological samples, helping reduce
+                    spherical aberration during imaging
+                    at greater depths.
+
+                </p>
+
+
+                <p class="section-intro mt-3">
+
+                    Silicone immersion objectives are well
+                    suited for live-cell and live-tissue
+                    imaging, particularly when extended
+                    observation and high-resolution imaging
+                    are required.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FRAP
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            Fluorescence Dynamics
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            FRAP & Molecular Mobility
+
+        </h2>
+
+
+        <div class="row g-5 align-items-center mt-3">
+
+
+            <div class="col-lg-6">
+
+
+                <h3 class="fw-bold mb-4">
+
+                    Measuring fluorescence recovery
+
+                </h3>
+
+
+                <p class="section-intro">
+
+                    Fluorescence recovery after photobleaching
+                    can be used to investigate the mobility
+                    and exchange of fluorescently labeled
+                    molecules within living cells.
+
+                </p>
+
+
+                <p class="section-intro mt-3">
+
+                    FRAP experiments can provide information
+                    about molecular diffusion, mobile and
+                    immobile fractions, and the dynamics of
+                    fluorescently labeled structures.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="col-lg-6">
+
+
+                <img
+                    src="../images/fv3000/fv3000-frap.jpg"
+                    class="detail-image"
+                    alt="FRAP imaging using Olympus FV3000">
+
+
+                <p class="detail-caption">
+
+                    Representative FRAP experiment.
+                    Experimental recovery curves and
+                    quantitative analysis can be added here.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Applications
+========================================================= -->
+
+<section class="section bg-light">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            Applications
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            What Can Be Imaged?
+
+        </h2>
+
+
+        <div class="row g-4 mt-4">
+
+
+            <div class="col-md-6">
+
+
+                <div class="capability">
+
+                    <h4>
+                        Live-Cell Imaging
+                    </h4>
+
+                    <p>
+
+                        Time-resolved imaging of cellular
+                        behavior, morphology, proliferation,
+                        and dynamic biological processes.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="capability">
+
+                    <h4>
+                        Multicolor Fluorescence
+                    </h4>
+
+                    <p>
+
+                        Simultaneous visualization of multiple
+                        fluorescent labels for localization
+                        and colocalization studies.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="capability">
+
+                    <h4>
+                        3D Cellular Structures
+                    </h4>
+
+                    <p>
+
+                        Z-stack acquisition for three-dimensional
+                        visualization of cells, tissues,
+                        and multicellular structures.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="col-md-6">
+
+
+                <div class="capability">
+
+                    <h4>
+                        FRAP & Molecular Dynamics
+                    </h4>
+
+                    <p>
+
+                        Analyze fluorescence recovery and
+                        molecular mobility within living cells
+                        using photobleaching experiments.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="capability">
+
+                    <h4>
+                        Deep Imaging
+                    </h4>
+
+                    <p>
+
+                        High-resolution imaging of thicker
+                        biological specimens using silicone
+                        immersion objectives.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="capability">
+
+                    <h4>
+                        Plant & Microbial Imaging
+                    </h4>
+
+                    <p>
+
+                        Fluorescence imaging of plant cells,
+                        microorganisms, and plant–microbe
+                        interactions.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Representative Data
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            Data
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Representative Images
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            Examples of multichannel fluorescence,
+            live-cell, three-dimensional, and FRAP
+            imaging acquired using the FV3000 platform.
+
+        </p>
+
+
+        <div class="mt-5">
+
+
+            <img
+                src="../images/fv3000/fv3000-data-01.jpg"
+                class="data-image"
+                alt="Representative Olympus FV3000 fluorescence image">
+
+
+            <p class="data-caption">
+
+                Representative FV3000 imaging dataset.
+                Scale bar and acquisition information
+                can be added here.
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+    <div class="container text-center">
+
+
+        <h2>
+
+            Interested in using the FV3000?
+
+        </h2>
+
+
+        <p>
+
+            Contact the Live-Cell Imaging Core
+            to discuss your imaging requirements
+            and experimental design.
+
+        </p>
+
+
+        <a
+            href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+            target="_blank"
+            class="btn btn-light btn-lg">
+
+            Book / Request Instrument
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Footer
+========================================================= -->
+
+<footer>
+
+    <div class="container text-center">
+
+
+        <h4>
+
+            Live-Cell Imaging Core Facility
+
+        </h4>
+
+
+        <p>
+
+            Institute of Plant and Microbial Biology<br>
+
+            Academia Sinica
+
+        </p>
+
+
+    </div>
+
+</footer>
+
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>

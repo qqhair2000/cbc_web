@@ -1,0 +1,1509 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Resources | Live-Cell Imaging Core</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/favicon.png">
+
+
+    <style>
+
+        /* =========================================================
+           Global
+        ========================================================= */
+
+        :root {
+
+            --sage: #718f7c;
+            --sage-dark: #506c5b;
+
+            --light: #f5f7f5;
+            --soft: #eef2ef;
+
+            --text: #26332d;
+            --muted: #6d7772;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family:
+                "Noto Sans TC",
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background: white;
+
+        }
+
+
+        /* =========================================================
+           Navigation
+        ========================================================= */
+
+        .navbar {
+
+            background: rgba(25, 35, 30, .96);
+
+            backdrop-filter: blur(10px);
+
+        }
+
+
+        .navbar-brand {
+
+            letter-spacing: .03em;
+
+        }
+
+
+        .navbar-brand small {
+
+            display: block;
+
+            font-size: .65rem;
+
+            font-weight: 400;
+
+            opacity: .65;
+
+            letter-spacing: .08em;
+
+        }
+
+
+        .nav-link {
+
+            margin-left: 10px;
+
+            transition: .25s;
+
+        }
+
+
+        .nav-link:hover {
+
+            color: #d9c38b !important;
+
+        }
+
+
+        /* =========================================================
+           Hero
+        ========================================================= */
+
+        .resource-hero {
+
+            padding: 160px 0 100px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5f7f5,
+                    #e8eeea
+                );
+
+        }
+
+
+        .eyebrow {
+
+            color: var(--sage);
+
+            font-size: .82rem;
+
+            font-weight: 700;
+
+            letter-spacing: .17em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .resource-hero h1 {
+
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+
+            font-weight: 800;
+
+            letter-spacing: -.03em;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .hero-text {
+
+            max-width: 720px;
+
+            color: var(--muted);
+
+            font-size: 1.15rem;
+
+            line-height: 1.9;
+
+        }
+
+
+        /* =========================================================
+           Sections
+        ========================================================= */
+
+        .section {
+
+            padding: 100px 0;
+
+        }
+
+
+        .section-soft {
+
+            background: var(--light);
+
+        }
+
+
+        .section-title {
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .section-intro {
+
+            color: var(--muted);
+
+            max-width: 720px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================================
+           Resource Cards
+        ========================================================= */
+
+        .resource-card {
+
+            height: 100%;
+
+            background: white;
+
+            border: 1px solid #e3e9e5;
+
+            border-radius: 20px;
+
+            padding: 32px;
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                border-color .25s ease;
+
+        }
+
+
+        .resource-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color: #cdd9d1;
+
+            box-shadow:
+                0 15px 35px rgba(30, 50, 45, .10);
+
+        }
+
+
+        .resource-icon {
+
+            width: 54px;
+
+            height: 54px;
+
+            border-radius: 15px;
+
+            background: var(--soft);
+
+            color: var(--sage-dark);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .resource-icon svg {
+
+            width: 27px;
+
+            height: 27px;
+
+        }
+
+
+        .resource-card h4 {
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .resource-card p {
+
+            color: var(--muted);
+
+            line-height: 1.75;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* =========================================================
+           Resource List
+        ========================================================= */
+
+        .resource-list {
+
+            margin-top: 30px;
+
+        }
+
+
+        .resource-item {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 20px 0;
+
+            border-bottom: 1px solid #e5e9e6;
+
+        }
+
+
+        .resource-item:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .resource-name {
+
+            font-weight: 600;
+
+            color: var(--text);
+
+        }
+
+
+        .resource-type {
+
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: .85rem;
+
+            color: var(--muted);
+
+        }
+
+
+        .resource-link {
+
+            flex-shrink: 0;
+
+            color: var(--sage-dark);
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition: .2s;
+
+        }
+
+
+        .resource-link:hover {
+
+            color: var(--sage);
+
+        }
+
+
+        /* =========================================================
+           Resource Group
+        ========================================================= */
+
+        .resource-group {
+
+            background: white;
+
+            border-radius: 24px;
+
+            padding: 40px;
+
+            box-shadow:
+                0 10px 30px rgba(30, 50, 45, .06);
+
+        }
+
+
+        .resource-group + .resource-group {
+
+            margin-top: 35px;
+
+        }
+
+
+        .resource-group-header {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .resource-group-header .resource-icon {
+
+            margin-bottom: 0;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .resource-group h3 {
+
+            font-weight: 800;
+
+            margin: 0;
+
+        }
+
+
+        .resource-group-intro {
+
+            color: var(--muted);
+
+            line-height: 1.75;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        /* =========================================================
+           Analysis / FAQ Cards
+        ========================================================= */
+
+        .feature-link {
+
+            display: block;
+
+            height: 100%;
+
+            padding: 35px;
+
+            background: var(--light);
+
+            border-radius: 20px;
+
+            text-decoration: none;
+
+            color: var(--text);
+
+            transition:
+                transform .25s ease,
+                background .25s ease;
+
+        }
+
+
+        .feature-link:hover {
+
+            transform: translateY(-5px);
+
+            background: #e9efeb;
+
+            color: var(--text);
+
+        }
+
+
+        .feature-link h4 {
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .feature-link p {
+
+            color: var(--muted);
+
+            line-height: 1.75;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .feature-arrow {
+
+            color: var(--sage-dark);
+
+            font-weight: 700;
+
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #718f7c,
+                    #506c5b
+                );
+
+            color: white;
+
+            padding: 80px 0;
+
+        }
+
+
+        .cta h2 {
+
+            font-weight: 800;
+
+        }
+
+
+        .cta p {
+
+            max-width: 700px;
+
+            margin:
+                20px auto 0;
+
+            color: rgba(255,255,255,.82);
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================================
+           Footer
+        ========================================================= */
+
+        footer {
+
+            background: #18201c;
+
+            color: white;
+
+            padding: 55px 0;
+
+        }
+
+
+        footer p {
+
+            color: #b8c0bb;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================================
+           Responsive
+        ========================================================= */
+
+        @media (max-width: 768px) {
+
+            .resource-hero {
+
+                padding:
+                    130px 0
+                    75px;
+
+            }
+
+
+            .section {
+
+                padding: 70px 0;
+
+            }
+
+
+            .resource-group {
+
+                padding: 28px;
+
+            }
+
+
+            .resource-item {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     Navigation
+========================================================= -->
+
+<nav
+    class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+
+
+        <a
+            class="navbar-brand fw-bold"
+            href="index.html">
+
+            LIVE-CELL IMAGING CORE
+
+            <small>
+                Institute of Plant and Microbial Biology · Academia Sinica
+            </small>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="menu">
+
+            <ul
+                class="navbar-nav ms-auto align-items-lg-center">
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html#service">
+
+                        Services
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html#instrument">
+
+                        Instruments
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html#analysis">
+
+                        Analysis
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html#training">
+
+                        Training
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="resources.html">
+
+                        Resources
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="index.html#contact">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     Hero
+========================================================= -->
+
+<section class="resource-hero">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-9">
+
+                <div class="eyebrow">
+
+                    Resources
+
+                </div>
+
+
+                <h1>
+
+                    Imaging Resources
+
+                </h1>
+
+
+                <p class="hero-text">
+
+                    Practical resources to help you prepare
+                    for imaging experiments, operate our
+                    instruments, and make the most of your
+                    microscopy data.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Instrument Manuals
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            Instrument Manuals
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Operation & Training Materials
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            Instrument manuals, operating guides, and
+            introductory materials are provided to help
+            users prepare for instrument operation and
+            training sessions.
+
+        </p>
+
+
+        <div class="resource-list">
+
+
+            <!-- FV3000 -->
+
+            <div class="resource-item">
+
+                <div>
+
+                    <div class="resource-name">
+
+                        Olympus FV3000 — Basic Operation Manual
+
+                    </div>
+
+                    <span class="resource-type">
+
+                        PDF · Instrument Manual
+
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="resources/IPMB_FV3000_基本操作手冊_compressed.pdf"
+                    class="resource-link"
+                    target="_blank">
+
+                    View PDF →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- STELLARIS -->
+
+            <div class="resource-item">
+
+                <div>
+
+                    <div class="resource-name">
+
+                        Leica STELLARIS 8 — Principles & Introduction
+
+                    </div>
+
+                    <span class="resource-type">
+
+                        PDF · Instrument Training Material
+
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="resources/LEICA_STELLARIS_8_原理講義.pdf"
+                    class="resource-link"
+                    target="_blank">
+
+                    View PDF →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- LSM 880 Principles -->
+
+            <div class="resource-item">
+
+                <div>
+
+                    <div class="resource-name">
+
+                        ZEISS LSM 880 — Principles
+
+                    </div>
+
+                    <span class="resource-type">
+
+                        PDF · Instrument Training Material
+
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="resources/ZEISS_LSM880_原理.pdf"
+                    class="resource-link"
+                    target="_blank">
+
+                    View PDF →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- LSM 880 Manual -->
+
+            <div class="resource-item">
+
+                <div>
+
+                    <div class="resource-name">
+
+                        ZEISS LSM 880 — Operation Manual
+
+                    </div>
+
+                    <span class="resource-type">
+
+                        PDF · Instrument Manual
+
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="resources/LSM880操作手冊.pdf"
+                    class="resource-link"
+                    target="_blank">
+
+                    View PDF →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- DeltaVision -->
+
+            <div class="resource-item">
+
+                <div>
+
+                    <div class="resource-name">
+
+                        GE DeltaVision — Chinese Operation & Principles Manual
+
+                    </div>
+
+                    <span class="resource-type">
+
+                        PDF · Instrument Training Material
+
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="resources/GE_DeltaVision_中文操作手冊_2019.pdf"
+                    class="resource-link"
+                    target="_blank">
+
+                    View PDF →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- LSM 510 META -->
+
+            <div class="resource-item">
+
+                <div>
+
+                    <div class="resource-name">
+
+                        ZEISS LSM 510 META — Chinese Operation Manual
+
+                    </div>
+
+                    <span class="resource-type">
+
+                        PDF · Instrument Manual
+
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="resources/LSM510_META中文操作手冊.pdf"
+                    class="resource-link"
+                    target="_blank">
+
+                    View PDF →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- AxioImager -->
+
+            <div class="resource-item">
+
+                <div>
+
+                    <div class="resource-name">
+
+                        ZEISS AxioImager Z1 — Chinese Operation Manual
+
+                    </div>
+
+                    <span class="resource-type">
+
+                        PDF · Instrument Manual
+
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="resources/AxioImager_Z1中文操作手冊.pdf"
+                    class="resource-link"
+                    target="_blank">
+
+                    View PDF →
+
+                </a>
+
+            </div>
+
+
+
+            <!-- Laser Capture -->
+
+            <div class="resource-item">
+
+                <div>
+
+                    <div class="resource-name">
+
+                        Non-Contact Live-Cell Laser Capture System
+
+                    </div>
+
+                    <span class="resource-type">
+
+                        PDF · Instrument Operation Manual
+
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="resources/非接觸式活細胞雷射擷取系統中文操作手冊.pdf"
+                    class="resource-link"
+                    target="_blank">
+
+                    View PDF →
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Imaging Resources
+========================================================= -->
+
+<section class="section section-soft">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            Imaging Resources
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Practical Imaging Materials
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            Additional materials covering fluorescence
+            imaging and experimental preparation.
+
+        </p>
+
+
+        <div class="row g-4 mt-4">
+
+
+            <!-- Live-Cell Dyes -->
+
+            <div class="col-lg-6">
+
+                <div class="resource-card">
+
+
+                    <div class="resource-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path
+                                d="M8 16a5 5 0 0 0 5-5c0-1.657-1.5-3-5-7-3.5 4-5 5.343-5 7a5 5 0 0 0 5 5"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h4>
+
+                        Live-Cell Fluorescent Dyes
+
+                    </h4>
+
+
+                    <p>
+
+                        Reference material for fluorescent
+                        dyes commonly used in live-cell imaging
+                        experiments.
+
+                    </p>
+
+
+                    <a
+                        href="resources/live-cell-fluorescent-dyes.pdf"
+                        class="resource-link"
+                        target="_blank">
+
+                        View Resource →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Imaging Principles -->
+
+            <div class="col-lg-6">
+
+                <div class="resource-card">
+
+
+                    <div class="resource-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path
+                                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m0 1.5A6.5 6.5 0 1 1 8 14.5 6.5 6.5 0 0 1 8 1.5"/>
+
+                            <path
+                                d="M7.25 4.5h1.5v4h-1.5zM7.25 10h1.5v1.5h-1.5z"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h4>
+
+                        Microscopy Principles
+
+                    </h4>
+
+
+                    <p>
+
+                        Introductory materials covering
+                        fluorescence microscopy, confocal imaging,
+                        and related imaging concepts.
+
+                    </p>
+
+
+                    <span class="resource-type">
+
+                        Additional materials coming soon.
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Analysis & FAQ
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            More Resources
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Analysis & Support
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            Explore additional resources for image analysis,
+            experimental planning, and common facility questions.
+
+        </p>
+
+
+        <div class="row g-4 mt-4">
+
+
+            <!-- Image Analysis -->
+
+            <div class="col-lg-6">
+
+                <a
+                    href="image-analysis.html"
+                    class="feature-link">
+
+                    <h4>
+
+                        Image Analysis
+
+                    </h4>
+
+
+                    <p>
+
+                        Software, workflows, segmentation,
+                        tracking, quantitative analysis,
+                        and AI-assisted image interpretation.
+
+                    </p>
+
+
+                    <span class="feature-arrow">
+
+                        Explore analysis →
+
+                    </span>
+
+                </a>
+
+            </div>
+
+
+
+            <!-- FAQ -->
+
+            <div class="col-lg-6">
+
+                <a
+                    href="faq.html"
+                    class="feature-link">
+
+                    <h4>
+
+                        Frequently Asked Questions
+
+                    </h4>
+
+
+                    <p>
+
+                        Common questions about instrument use,
+                        booking, sample preparation, imaging,
+                        and facility procedures.
+
+                    </p>
+
+
+                    <span class="feature-arrow">
+
+                        View FAQ →
+
+                    </span>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Training CTA
+========================================================= -->
+
+<section class="cta">
+
+    <div class="container text-center">
+
+
+        <h2>
+
+            Need Help Getting Started?
+
+        </h2>
+
+
+        <p>
+
+            If you are unsure which instrument, imaging
+            strategy, or analysis workflow is appropriate
+            for your experiment, our team can help.
+
+        </p>
+
+
+        <a
+            href="training.html"
+            class="btn btn-light btn-lg rounded-pill px-4 mt-4">
+
+            Training & Consultation →
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Footer
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="row g-5">
+
+
+            <div class="col-lg-7">
+
+                <h4 class="fw-bold">
+
+                    Live-Cell Imaging Core Facility
+
+                </h4>
+
+
+                <p class="mt-3">
+
+                    Institute of Plant and Microbial Biology<br>
+
+                    Academia Sinica<br>
+
+                    Taipei, Taiwan
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+                <h5>
+
+                    Imaging Support
+
+                </h5>
+
+
+                <p>
+
+                    Have questions about imaging,
+                    instrument operation, or data analysis?
+
+                </p>
+
+
+                <a
+                    href="index.html#contact"
+                    class="btn btn-outline-light rounded-pill px-4">
+
+                    Contact Us →
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <hr class="my-5 opacity-25">
+
+
+        <div class="small opacity-50">
+
+            © Academia Sinica · Institute of Plant and Microbial Biology
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>
+```

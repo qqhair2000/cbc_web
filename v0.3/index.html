@@ -555,7 +555,49 @@
 
         }
 
+        /* =========================================================
+           Training Section
+        ========================================================= */
 
+        .training-box {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #718f7c,
+                    #506c5b
+                );
+
+            color: white;
+
+            border-radius: 28px;
+
+            padding: 60px;
+
+        }
+
+        .training-box .title {
+
+            color: white;
+
+        }
+
+
+        .training-box p {
+
+            color: rgba(
+                255,
+                255,
+                255,
+                .82
+            );
+
+            line-height: 1.9;
+
+            max-width: 700px;
+
+        }
+   
 
         /* =========================================================
            Footer
@@ -994,35 +1036,41 @@
 
                 <div class="col-lg-4">
 
-                    <div class="instrument-card">
+                    <a
+                        href="instruments/lsm880.html"
+                        class="service-link">
 
-                        <img
-                            src="images/lsm880/zeiss-lsm-880-with-airyscan-microscope.jpg"
-                            alt="ZEISS LSM 880 Airyscan">
+                        <div class="instrument-card">
+
+                            <img
+                                src="images/lsm880/zeiss-lsm-880-with-airyscan-microscope.jpg"
+                                alt="ZEISS LSM 880 Airyscan">
 
 
-                        <div class="card-body">
+                            <div class="card-body">
 
-                            <h4>
-                                ZEISS LSM 880 Airyscan
-                            </h4>
+                                <h4>
+                                    ZEISS LSM 880 Airyscan
+                                </h4>
 
-                            <p>
-                                High-resolution confocal imaging
-                                with Airyscan detection.
-                            </p>
+                                <p>
+                                    High-resolution confocal imaging
+                                    with Airyscan detection.
+                                </p>
 
-                            <a
-                                href="#"
-                                class="instrument-link">
+                                <span
+                                    href="#"
+                                    class="instrument-link">
 
-                                Explore instrument →
+                                    Explore instrument →
 
-                            </a>
+                                </span>
+
+                            </div>
 
                         </div>
 
-                    </div>
+                    </a>
 
                 </div>
 
@@ -1074,35 +1122,43 @@
 
                 <div class="col-lg-4">
 
-                    <div class="instrument-card">
+                    <a
+                        href="instruments/fv3000.html"
+                        class="service-link">
 
-                        <img
-                            src="images/fv3000/olympus-fv3000.jpg"
-                            alt="Olympus FV3000">
+                        <div class="instrument-card">
+
+                            <img
+                                src="images/fv3000/olympus-fv3000.jpg"
+                                alt="Olympus FV3000">
 
 
-                        <div class="card-body">
+                            <div class="card-body">
 
-                            <h4>
-                                Olympus FV3000
-                            </h4>
+                                <h4>
+                                    Olympus FV3000
+                                </h4>
 
-                            <p>
-                                Multiplex fluorescence microscopy
-                                for advanced biological imaging.
-                            </p>
+                                <p>
+                                    Live-cell confocal imaging with 
+                                    silicone immersion objectives and 
+                                    multichannel fluorescence
+                                    
+                                </p>
 
-                            <a
-                                href="#"
-                                class="instrument-link">
+                                <span
+                                    href="#"
+                                    class="instrument-link">
 
-                                Explore instrument →
+                                    Explore instrument →
 
-                            </a>
+                                </span>
+
+                            </div>  
 
                         </div>
 
-                    </div>
+                    </a>
 
                 </div>
 
@@ -1285,7 +1341,7 @@
 
 
                 <a
-                    href="#"
+                    href="image-analysis.html"
                     class="btn btn-light rounded-pill px-4 mt-3">
 
                     Explore Image Analysis →
@@ -1310,27 +1366,39 @@
 
         <div class="container">
 
-            <div class="eyebrow">
-                Learn With Us
-            </div>
+            <div class="training-box">
+
+                <div class="eyebrow text-light">
+                    Learn With Us
+                </div>
 
 
-            <h2 class="title">
-                Training & Consultation
-            </h2>
+                <h2 class="title">
+                    Training & Consultation
+                </h2>
 
 
-            <div class="row">
+                <div class="row">
 
-                <div class="col-lg-8">
+                    <div class="col-lg-8">
 
-                    <p class="lead-text">
+                        <p class="fs-5 mt-4">
 
-                        We provide hands-on instrument training,
-                        imaging consultation, image acquisition
-                        guidance, and troubleshooting support.
+                            We provide hands-on instrument training,
+                            imaging consultation, image acquisition
+                            guidance, and troubleshooting support.
 
-                    </p>
+                        </p>
+
+                        <a
+                        href="training.html"
+                        class="btn btn-light rounded-pill px-4 mt-3">
+
+                        Explore Training →
+
+                        </a>
+
+                    </div>
 
                 </div>
 
@@ -1374,11 +1442,13 @@
                         </h4>
 
                         <p>
-                            Instrument manuals and training materials.
+                            Manuals, quick guides, and technical materials
+                            for microscopy systems in the facility.
+
                         </p>
 
                         <a
-                            href="#"
+                            href="resources.html"
                             class="instrument-link">
 
                             View resources →
@@ -1400,7 +1470,8 @@
                         </h4>
 
                         <p>
-                            Software, workflows and analysis resources.
+                            Software, workflows, and resources
+                            for image processing and quantitative analysis.
                         </p>
 
                         <a
@@ -1426,12 +1497,13 @@
                         </h4>
 
                         <p>
-                            Common questions about imaging
-                            and facility use.
+                            Common questions about imaging,
+                            training, booking, and facility use.
+
                         </p>
 
                         <a
-                            href="#"
+                            href="faq.html"
                             class="instrument-link">
 
                             View FAQ →

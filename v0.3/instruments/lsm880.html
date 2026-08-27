@@ -1,1 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZEISS LSM 880 | Live-Cell Imaging Core</title>
+
+<link
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<link
+rel="icon"
+type="image/png"
+href="../images/favicon2.png">
+
+
+<style>
+
+/* =========================================================
+   Global
+========================================================= */
+
+:root {
+
+    --sage: #718f7c;
+    --sage-dark: #506c5b;
+
+    --light: #f5f7f5;
+
+    --text: #26332d;
+
+    --muted: #6d7772;
+
+}
+
+
+body {
+
+    font-family:
+        "Noto Sans TC",
+        Arial,
+        sans-serif;
+
+    color: var(--text);
+
+    background: white;
+
+}
+
+
+/* =========================================================
+   Navigation
+========================================================= */
+
+.navbar {
+
+    background: rgba(25, 35, 30, .96);
+
+}
+
+
+/* =========================================================
+   Hero
+========================================================= */
+
+.instrument-hero {
+
+    padding: 150px 0 90px;
+
+    background: var(--light);
+
+}
+
+
+.eyebrow {
+
+    color: var(--sage);
+
+    font-size: .85rem;
+
+    font-weight: 700;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+
+}
+
+
+.instrument-hero h1 {
+
+    font-size: 3.5rem;
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+
+}
+
+
+.instrument-subtitle {
+
+    font-size: 1.25rem;
+
+    color: var(--muted);
+
+    margin-bottom: 40px;
+
+}
+
+
+.hero-image {
+
+    width: 100%;
+
+    height: 520px;
+
+    object-fit: cover;
+
+    border-radius: 24px;
+
+}
+
+
+/* =========================================================
+   Section
+========================================================= */
+
+.section {
+
+    padding: 100px 0;
+
+}
+
+
+.section-title {
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+
+}
+
+
+.section-intro {
+
+    color: var(--muted);
+
+    max-width: 720px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   Technology Tags
+========================================================= */
+
+.tech-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+}
+
+
+.tech-tag {
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    background: #e8eee9;
+
+    color: var(--sage-dark);
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   Detail Images
+========================================================= */
+
+.detail-image {
+
+    width: 100%;
+
+    height: 320px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+}
+
+
+.detail-caption {
+
+    margin-top: 15px;
+
+    color: var(--muted);
+
+    font-size: .95rem;
+
+}
+
+
+/* =========================================================
+   Capabilities
+========================================================= */
+
+.capability {
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid #e5e9e6;
+
+}
+
+
+.capability h4 {
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+}
+
+
+.capability p {
+
+    color: var(--muted);
+
+    margin-bottom: 0;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   Data Image
+========================================================= */
+
+.data-image {
+
+    width: 100%;
+
+    max-height: 650px;
+
+    object-fit: contain;
+
+    border-radius: 20px;
+
+    background: #111;
+
+}
+
+
+.data-caption {
+
+    margin-top: 15px;
+
+    color: var(--muted);
+
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+
+    background: var(--sage);
+
+    color: white;
+
+    padding: 80px 0;
+
+}
+
+
+.cta h2 {
+
+    font-weight: 800;
+
+}
+
+
+.cta .btn {
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================================================
+   Footer
+========================================================= */
+
+footer {
+
+    background: #18201c;
+
+    color: white;
+
+    padding: 50px 0;
+
+}
+
+
+footer p {
+
+    color: #b8c0bb;
+
+}
+
+
+/* =========================================================
+   Responsive
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .instrument-hero h1 {
+
+        font-size: 2.5rem;
+
+    }
+
+
+    .hero-image {
+
+        height: 350px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     Navigation
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+<div class="container">
+
+
+<a
+class="navbar-brand fw-bold"
+href="../index.html">
+
+Live-Cell Imaging Core
+
+</a>
+
+
+<button
+class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+
+<div
+class="collapse navbar-collapse"
+id="menu">
+
+
+<ul class="navbar-nav ms-auto">
+
+
+<li class="nav-item">
+
+<a
+class="nav-link"
+href="../index.html">
+
+Home
+
+</a>
+
+</li>
+
+
+<li class="nav-item">
+
+<a
+class="nav-link active"
+href="../index.html#instrument">
+
+Instruments
+
+</a>
+
+</li>
+
+
+<li class="nav-item">
+
+<a
+class="nav-link"
+href="../index.html#service">
+
+Services
+
+</a>
+
+</li>
+
+
+<li class="nav-item">
+
+<a
+class="nav-link"
+href="../index.html#analysis">
+
+Analysis
+
+</a>
+
+</li>
+
+
+<li class="nav-item">
+
+<a
+class="nav-link"
+href="../index.html#contact">
+
+Contact
+
+</a>
+
+</li>
+
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     Instrument Hero
+========================================================= -->
+
+<section class="instrument-hero">
+
+<div class="container">
+
+
+<div class="row align-items-center g-5">
+
+
+<div class="col-lg-5">
+
+
+<div class="eyebrow">
+
+Instrument
+
+</div>
+
+
+<h1>
+
+ZEISS LSM 880
+
+</h1>
+
+
+<p class="instrument-subtitle">
+
+Confocal laser scanning microscope
+with Airyscan detection
+
+</p>
+
+
+<p class="section-intro">
+
+A high-performance confocal imaging platform
+for high-resolution fluorescence imaging,
+optical sectioning, three-dimensional imaging,
+and advanced cellular microscopy.
+
+</p>
+
+
+<div class="tech-list">
+
+
+<span class="tech-tag">
+Confocal
+</span>
+
+
+<span class="tech-tag">
+Airyscan
+</span>
+
+
+<span class="tech-tag">
+Z-Stack
+</span>
+
+
+<span class="tech-tag">
+3D Imaging
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="col-lg-7">
+
+
+<img
+src="../images/lsm880-hero.jpg"
+class="hero-image"
+alt="ZEISS LSM 880 confocal microscope">
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Technology
+========================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+
+<div class="eyebrow">
+
+Technology
+
+</div>
+
+
+<h2 class="section-title">
+
+Imaging Capabilities
+
+</h2>
+
+
+<p class="section-intro">
+
+The LSM 880 combines laser scanning confocal
+microscopy with advanced Airyscan detection,
+providing high-resolution optical sectioning
+and flexible fluorescence imaging for biological
+research.
+
+</p>
+
+
+
+<div class="row g-4 mt-4">
+
+
+<div class="col-md-6">
+
+
+<div class="capability">
+
+<h4>
+Confocal Imaging
+</h4>
+
+<p>
+
+High-resolution optical sectioning for
+fluorescence imaging of cells, tissues,
+and biological structures.
+
+</p>
+
+</div>
+
+
+
+<div class="capability">
+
+<h4>
+Airyscan Detection
+</h4>
+
+<p>
+
+Airyscan detection provides improved
+resolution and signal-to-noise compared
+with conventional confocal detection,
+enabling detailed imaging of fine
+cellular structures.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<div class="col-md-6">
+
+
+<div class="capability">
+
+<h4>
+Z-Stack & 3D Imaging
+</h4>
+
+<p>
+
+Acquire optical sections through biological
+specimens for three-dimensional visualization
+and analysis of cellular structures.
+
+</p>
+
+</div>
+
+
+
+<div class="capability">
+
+<h4>
+Multichannel Fluorescence
+</h4>
+
+<p>
+
+Acquire multiple fluorescence channels
+for localization studies, colocalization,
+and comparative analysis of biological
+structures.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Advanced Imaging
+========================================================= -->
+
+<section class="section bg-light">
+
+<div class="container">
+
+
+<div class="eyebrow">
+
+Advanced Imaging
+
+</div>
+
+
+<h2 class="section-title">
+
+Airyscan Imaging
+
+</h2>
+
+
+<div class="row g-5 align-items-center mt-3">
+
+
+<div class="col-lg-6">
+
+
+<img
+src="../images/lsm880-detail-01.jpg"
+class="detail-image"
+alt="ZEISS LSM 880 Airyscan detector">
+
+
+<p class="detail-caption">
+
+ZEISS LSM 880 with Airyscan detection.
+
+</p>
+
+
+</div>
+
+
+
+<div class="col-lg-6">
+
+
+<h3 class="fw-bold mb-4">
+
+High-resolution imaging
+with improved signal-to-noise
+
+</h3>
+
+
+<p class="section-intro">
+
+Airyscan detection uses a detector array
+to collect spatially resolved fluorescence
+information, enabling improved resolution
+and signal-to-noise while retaining the
+optical sectioning capabilities of confocal
+microscopy.
+
+</p>
+
+
+<p class="section-intro mt-3">
+
+This makes the system particularly useful
+for resolving fine cellular structures,
+weak fluorescent signals, and detailed
+subcellular organization.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Instrument Details
+========================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+
+<div class="eyebrow">
+
+Instrument
+
+</div>
+
+
+<h2 class="section-title">
+
+Designed for High-Resolution Microscopy
+
+</h2>
+
+
+<p class="section-intro">
+
+The LSM 880 provides a flexible imaging
+platform for conventional confocal imaging
+as well as high-resolution Airyscan applications.
+
+</p>
+
+
+
+<div class="row g-4 mt-4">
+
+
+<div class="col-md-6">
+
+
+<img
+src="../images/lsm880-detail-02.jpg"
+class="detail-image"
+alt="ZEISS LSM 880 microscope detail">
+
+
+<p class="detail-caption">
+
+Microscope body and motorized sample stage.
+
+</p>
+
+
+</div>
+
+
+
+<div class="col-md-6">
+
+
+<img
+src="../images/lsm880-detail-03.jpg"
+class="detail-image"
+alt="ZEISS LSM 880 optical system">
+
+<p class="detail-caption">
+
+Laser scanning and detection system.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Applications
+========================================================= -->
+
+<section class="section bg-light">
+
+<div class="container">
+
+
+<div class="eyebrow">
+
+Applications
+
+</div>
+
+
+<h2 class="section-title">
+
+What Can Be Imaged?
+
+</h2>
+
+
+<div class="row g-4 mt-4">
+
+
+<div class="col-md-6">
+
+
+<div class="capability">
+
+<h4>
+Cellular Organization
+</h4>
+
+<p>
+
+Visualization of cellular structures
+and subcellular organization using
+fluorescence and optical sectioning.
+
+</p>
+
+</div>
+
+
+<div class="capability">
+
+<h4>
+Protein Localization
+</h4>
+
+<p>
+
+Fluorescence imaging for investigating
+protein distribution and localization
+within cells and tissues.
+
+</p>
+
+</div>
+
+
+<div class="capability">
+
+<h4>
+Organelle Imaging
+</h4>
+
+<p>
+
+High-resolution imaging of organelles
+and fine intracellular structures.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<div class="col-md-6">
+
+
+<div class="capability">
+
+<h4>
+3D Cellular Structures
+</h4>
+
+<p>
+
+Z-stack acquisition for three-dimensional
+visualization of cells, tissues, and
+multicellular structures.
+
+</p>
+
+</div>
+
+
+<div class="capability">
+
+<h4>
+Plant–Microbe Interactions
+</h4>
+
+<p>
+
+Fluorescence imaging of interactions
+between plant cells, microorganisms,
+and their associated structures.
+
+</p>
+
+</div>
+
+
+<div class="capability">
+
+<h4>
+Live-Cell Imaging</h4>
+
+<p>
+
+Time-resolved fluorescence imaging
+for observing cellular processes
+and dynamic biological behavior.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Representative Data
+========================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+
+<div class="eyebrow">
+
+Data
+
+</div>
+
+
+<h2 class="section-title">
+
+Representative Images
+
+</h2>
+
+
+<p class="section-intro">
+
+Examples of fluorescence and high-resolution
+images acquired using the LSM 880 platform.
+
+</p>
+
+
+
+<div class="mt-5">
+
+
+<img
+src="../images/lsm880-data-01.jpg"
+class="data-image"
+alt="Representative ZEISS LSM 880 fluorescence image">
+
+
+<p class="data-caption">
+
+Representative fluorescence imaging dataset.
+Scale bar and acquisition information can
+be added here.
+
+</p>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+<div class="container text-center">
+
+
+<h2>
+
+Interested in using the LSM 880?
+
+</h2>
+
+
+<p>
+
+Contact the Live-Cell Imaging Core
+to discuss your imaging requirements
+and experimental design.
+
+</p>
+
+
+<a
+href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+target="_blank"
+class="btn btn-light btn-lg">
+
+Book / Request Instrument
+
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Footer
+========================================================= -->
+
+<footer>
+
+<div class="container text-center">
+
+
+<h4>
+
+Live-Cell Imaging Core Facility
+
+</h4>
+
+
+<p>
+
+Institute of Plant and Microbial Biology<br>
+
+Academia Sinica
+
+</p>
+
+
+</div>
+
+</footer>
+
+
+
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>

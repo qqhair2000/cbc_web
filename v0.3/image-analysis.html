@@ -1,0 +1,2710 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image Analysis | Live-Cell Imaging Core</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../images/favicon.png">
+
+
+    <style>
+
+        /* =========================================================
+           Global
+        ========================================================= */
+
+        :root {
+
+            --forest: #315f58;
+            --forest-dark: #244943;
+
+            --sage: #718f7c;
+            --sage-light: #dfe9e5;
+
+            --mist: #f3f6f4;
+
+            --text: #26332d;
+            --muted: #6d7772;
+
+            --warm: #e7c98b;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family:
+                "Noto Sans TC",
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background: white;
+
+        }
+
+
+        /* =========================================================
+           Navigation
+        ========================================================= */
+
+        .navbar {
+
+            background: rgba(25, 35, 30, .96);
+
+        }
+
+
+        .navbar-brand {
+
+            letter-spacing: .03em;
+
+        }
+
+
+        .nav-link {
+
+            margin-left: 10px;
+
+            transition: .25s;
+
+        }
+
+
+        .nav-link:hover {
+
+            color: var(--warm) !important;
+
+        }
+
+
+        /* =========================================================
+           Hero
+        ========================================================= */
+
+        .analysis-hero {
+
+            padding: 170px 0 110px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    var(--mist),
+                    #ffffff
+                );
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .analysis-hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+
+            height: 420px;
+
+            border-radius: 50%;
+
+            background: var(--sage-light);
+
+            opacity: .45;
+
+            right: -120px;
+
+            top: -120px;
+
+        }
+
+
+        .analysis-hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .eyebrow {
+
+            color: var(--forest);
+
+            font-size: .78rem;
+
+            font-weight: 800;
+
+            letter-spacing: .18em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .analysis-hero h1 {
+
+            font-size: clamp(3rem, 6vw, 5rem);
+
+            line-height: 1.02;
+
+            font-weight: 800;
+
+            letter-spacing: -.04em;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .hero-lead {
+
+            color: var(--muted);
+
+            font-size: 1.2rem;
+
+            line-height: 1.9;
+
+            max-width: 700px;
+
+        }
+
+
+        .analysis-tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 30px;
+
+        }
+
+
+        .analysis-tag {
+
+            padding: 9px 16px;
+
+            border-radius: 30px;
+
+            background: white;
+
+            border: 1px solid #dce5e0;
+
+            color: var(--forest-dark);
+
+            font-weight: 600;
+
+            font-size: .9rem;
+
+        }
+
+
+        /* =========================================================
+           Section
+        ========================================================= */
+
+        .section {
+
+            padding: 100px 0;
+
+        }
+
+
+        .section-soft {
+
+            background: var(--mist);
+
+        }
+
+
+        .section-title {
+
+            font-weight: 800;
+
+            letter-spacing: -.02em;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .section-intro {
+
+            color: var(--muted);
+
+            max-width: 760px;
+
+            line-height: 1.9;
+
+        }
+
+
+        /* =========================================================
+           Analysis Capabilities
+        ========================================================= */
+
+        .analysis-card {
+
+            height: 100%;
+
+            padding: 32px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            border: 1px solid #e5ebe7;
+
+            transition:
+
+                transform .3s ease,
+
+                box-shadow .3s ease;
+
+        }
+
+
+        .analysis-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+
+                0 18px 40px rgba(30, 50, 45, .10);
+
+        }
+
+
+        .analysis-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            border-radius: 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--sage-light);
+
+            color: var(--forest);
+
+            font-weight: 800;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .analysis-card h4 {
+
+            font-weight: 750;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .analysis-card p {
+
+            color: var(--muted);
+
+            line-height: 1.75;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .analysis-card ul {
+
+            padding-left: 18px;
+
+            margin-bottom: 0;
+
+            color: var(--muted);
+
+            line-height: 1.9;
+
+        }
+
+
+        /* =========================================================
+           Workflow
+        ========================================================= */
+
+        .workflow-section {
+
+            background: #ffffff;
+
+        }
+
+
+        .workflow {
+
+            display: flex;
+
+            align-items: stretch;
+
+            margin-top: 55px;
+
+        }
+
+
+        .workflow-step {
+
+            flex: 1;
+
+            position: relative;
+
+            padding: 30px 22px;
+
+            text-align: center;
+
+            background: var(--mist);
+
+            border-radius: 18px;
+
+        }
+
+
+        .workflow-step:not(:last-child) {
+
+            margin-right: 35px;
+
+        }
+
+
+        .workflow-step:not(:last-child)::after {
+
+            content: "→";
+
+            position: absolute;
+
+            right: -28px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: var(--sage);
+
+            font-size: 1.5rem;
+
+            font-weight: 700;
+
+        }
+
+
+        .workflow-number {
+
+            color: var(--forest);
+
+            font-size: .75rem;
+
+            font-weight: 800;
+
+            letter-spacing: .15em;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .workflow-step h5 {
+
+            font-weight: 750;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .workflow-step p {
+
+            color: var(--muted);
+
+            font-size: .9rem;
+
+            line-height: 1.6;
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* =========================================================
+           Image To Data
+        ========================================================= */
+
+        .data-flow {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    var(--forest),
+                    var(--forest-dark)
+                );
+
+            color: white;
+
+            border-radius: 28px;
+
+            padding: 60px;
+
+        }
+
+
+        .data-flow .eyebrow {
+
+            color: var(--warm);
+
+        }
+
+
+        .data-flow h2 {
+
+            font-weight: 800;
+
+            letter-spacing: -.02em;
+
+        }
+
+
+        .data-flow p {
+
+            color: rgba(255,255,255,.78);
+
+            line-height: 1.85;
+
+            max-width: 760px;
+
+        }
+
+
+        .data-example {
+
+            margin-top: 45px;
+
+            display: grid;
+
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+
+            align-items: center;
+
+            gap: 18px;
+
+        }
+
+
+        .data-stage {
+
+            padding: 28px 20px;
+
+            background: rgba(255,255,255,.09);
+
+            border: 1px solid rgba(255,255,255,.14);
+
+            border-radius: 18px;
+
+            text-align: center;
+
+        }
+
+
+        .data-stage strong {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .data-stage span {
+
+            color: rgba(255,255,255,.68);
+
+            font-size: .9rem;
+
+        }
+
+
+        .data-arrow {
+
+            font-size: 1.5rem;
+
+            opacity: .6;
+
+        }
+
+
+        /* =========================================================
+           Quantification
+        ========================================================= */
+
+        .measurement-table {
+
+            margin-top: 45px;
+
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            border: 1px solid #e2e8e4;
+
+        }
+
+
+        .measurement-table table {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .measurement-table th {
+
+            background: var(--mist);
+
+            color: var(--forest-dark);
+
+            font-weight: 750;
+
+            border-bottom: 1px solid #dfe7e2;
+
+        }
+
+
+        .measurement-table td {
+
+            color: var(--muted);
+
+            padding: 16px;
+
+            vertical-align: middle;
+
+        }
+
+
+        /* =========================================================
+           Tools
+        ========================================================= */
+
+        .tool-box {
+
+            padding: 28px;
+
+            height: 100%;
+
+            border-radius: 20px;
+
+            background: white;
+
+            border: 1px solid #e3e9e5;
+
+        }
+
+
+        .tool-category {
+
+            color: var(--forest);
+
+            font-size: .78rem;
+
+            font-weight: 800;
+
+            letter-spacing: .12em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .tool-box h4 {
+
+            font-weight: 750;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .tool-box p {
+
+            color: var(--muted);
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .tool-tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+        }
+
+
+        .tool-tag {
+
+            padding: 7px 12px;
+
+            background: var(--sage-light);
+
+            color: var(--forest-dark);
+
+            border-radius: 20px;
+
+            font-size: .82rem;
+
+            font-weight: 650;
+
+        }
+
+
+        /* =========================================================
+           Applications
+        ========================================================= */
+
+        .application {
+
+            padding: 24px 0;
+
+            border-bottom: 1px solid #e4eae6;
+
+        }
+
+
+        .application:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .application h4 {
+
+            font-weight: 750;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .application p {
+
+            color: var(--muted);
+
+            line-height: 1.75;
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* =========================================================
+           Deliverables
+        ========================================================= */
+
+        .deliverable {
+
+            padding: 26px;
+
+            background: white;
+
+            border-radius: 18px;
+
+            height: 100%;
+
+            border: 1px solid #e3e9e5;
+
+        }
+
+
+        .deliverable h5 {
+
+            font-weight: 750;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .deliverable p {
+
+            color: var(--muted);
+
+            line-height: 1.7;
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta {
+
+            background: var(--sage);
+
+            color: white;
+
+            padding: 90px 0;
+
+        }
+
+
+        .cta h2 {
+
+            font-weight: 800;
+
+            letter-spacing: -.02em;
+
+        }
+
+
+        .cta p {
+
+            color: rgba(255,255,255,.82);
+
+            line-height: 1.85;
+
+            max-width: 700px;
+
+            margin: 18px auto 0;
+
+        }
+
+
+        .cta .btn {
+
+            margin-top: 28px;
+
+        }
+
+
+        /* =========================================================
+           Footer
+        ========================================================= */
+
+        footer {
+
+            background: #18201c;
+
+            color: white;
+
+            padding: 55px 0;
+
+        }
+
+
+        footer p {
+
+            color: #b8c0bb;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================================
+           Responsive
+        ========================================================= */
+
+        @media (max-width: 991px) {
+
+            .workflow {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            .workflow-step:not(:last-child) {
+
+                margin-right: 0;
+
+            }
+
+
+            .workflow-step:not(:last-child)::after {
+
+                content: "↓";
+
+                right: auto;
+
+                top: auto;
+
+                bottom: -28px;
+
+                left: 50%;
+
+                transform: translateX(-50%);
+
+            }
+
+
+            .data-example {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .data-arrow {
+
+                transform: rotate(90deg);
+
+            }
+
+        }
+
+
+        @media (max-width: 768px) {
+
+            .section {
+
+                padding: 70px 0;
+
+            }
+
+
+            .analysis-hero {
+
+                padding: 140px 0 80px;
+
+            }
+
+
+            .analysis-hero h1 {
+
+                font-size: 2.8rem;
+
+            }
+
+
+            .data-flow {
+
+                padding: 35px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     Navigation
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+
+
+        <a
+            class="navbar-brand fw-bold"
+            href="../index.html">
+
+            Live-Cell Imaging Core
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="menu">
+
+
+            <ul class="navbar-nav ms-auto">
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../instruments.html">
+
+                        Instruments
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#service">
+
+                        Services
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="image-analysis.html">
+
+                        Analysis
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#contact">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     Hero
+========================================================= -->
+
+<section class="analysis-hero">
+
+    <div class="container analysis-hero-content">
+
+        <div class="row">
+
+            <div class="col-lg-9">
+
+
+                <div class="eyebrow">
+
+                    Image Analysis
+
+                </div>
+
+
+                <h1>
+
+                    Turning Images<br>
+                    into Quantitative Data
+
+                </h1>
+
+
+                <p class="hero-lead">
+
+                    Advanced image processing, segmentation,
+                    tracking, 3D analysis, and quantitative
+                    workflows for microscopy datasets.
+
+                </p>
+
+
+                <div class="analysis-tags">
+
+                    <span class="analysis-tag">
+                        Image Processing
+                    </span>
+
+                    <span class="analysis-tag">
+                        Segmentation
+                    </span>
+
+                    <span class="analysis-tag">
+                        Tracking
+                    </span>
+
+                    <span class="analysis-tag">
+                        3D Analysis
+                    </span>
+
+                    <span class="analysis-tag">
+                        Quantification
+                    </span>
+
+                    <span class="analysis-tag">
+                        AI-Assisted Analysis
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Introduction
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="row justify-content-center text-center">
+
+            <div class="col-lg-9">
+
+
+                <div class="eyebrow">
+
+                    Beyond Acquisition
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    From Microscopy Images<br>
+                    to Biological Insight
+
+                </h2>
+
+
+                <p class="section-intro mx-auto">
+
+                    Microscopy datasets often contain information
+                    that cannot be fully captured by visual inspection
+                    alone. Image analysis can transform complex
+                    images into measurable features, trajectories,
+                    structures, and quantitative datasets that help
+                    answer biological questions.
+
+                </p>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Analysis Capabilities
+========================================================= -->
+
+<section
+    class="section section-soft"
+    id="capabilities">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            What We Analyze
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Image Analysis Capabilities
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            Analysis workflows can be adapted to the imaging
+            modality, biological structure, dataset size,
+            and quantitative question.
+
+        </p>
+
+
+        <div class="row g-4 mt-4">
+
+
+            <!-- Image Processing -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="analysis-card">
+
+
+                    <div class="analysis-icon">
+                        01
+                    </div>
+
+
+                    <h4>
+                        Image Processing
+                    </h4>
+
+
+                    <p>
+
+                        Prepare microscopy datasets for
+                        visualization and downstream analysis.
+
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Background and shading correction
+                        </li>
+
+                        <li>
+                            Denoising and image enhancement
+                        </li>
+
+                        <li>
+                            Deconvolution
+                        </li>
+
+                        <li>
+                            Registration and stitching
+                        </li>
+
+                        <li>
+                            Z-stack and multichannel processing
+                        </li>
+
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Segmentation -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="analysis-card">
+
+
+                    <div class="analysis-icon">
+                        02
+                    </div>
+
+
+                    <h4>
+                        Segmentation
+                    </h4>
+
+
+                    <p>
+
+                        Identify and separate biological
+                        structures within microscopy images.
+
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Cell and nuclear segmentation
+                        </li>
+
+                        <li>
+                            Organelle segmentation
+                        </li>
+
+                        <li>
+                            Object detection
+                        </li>
+
+                        <li>
+                            Instance segmentation
+                        </li>
+
+                        <li>
+                            AI-assisted segmentation
+                        </li>
+
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Tracking -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="analysis-card">
+
+
+                    <div class="analysis-icon">
+                        03
+                    </div>
+
+
+                    <h4>
+                        Tracking
+                    </h4>
+
+
+                    <p>
+
+                        Follow cells, organelles, particles,
+                        and other biological structures through time.
+
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Cell migration
+                        </li>
+
+                        <li>
+                            Cell division and lineage
+                        </li>
+
+                        <li>
+                            Organelle movement
+                        </li>
+
+                        <li>
+                            Particle tracking
+                        </li>
+
+                        <li>
+                            Trajectory analysis
+                        </li>
+
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 3D -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="analysis-card">
+
+
+                    <div class="analysis-icon">
+                        04
+                    </div>
+
+
+                    <h4>
+                        3D Analysis
+                    </h4>
+
+
+                    <p>
+
+                        Extract structural and spatial information
+                        from volumetric microscopy datasets.
+
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            3D reconstruction
+                        </li>
+
+                        <li>
+                            Surface rendering
+                        </li>
+
+                        <li>
+                            Volume and surface measurements
+                        </li>
+
+                        <li>
+                            Object morphology
+                        </li>
+
+                        <li>
+                            Spatial relationships
+                        </li>
+
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Quantification -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="analysis-card">
+
+
+                    <div class="analysis-icon">
+                        05
+                    </div>
+
+
+                    <h4>
+                        Quantification
+                    </h4>
+
+
+                    <p>
+
+                        Convert image features into numerical
+                        measurements for statistical analysis.
+
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Intensity measurements
+                        </li>
+
+                        <li>
+                            Area and volume
+                        </li>
+
+                        <li>
+                            Object counting
+                        </li>
+
+                        <li>
+                            Morphological parameters
+                        </li>
+
+                        <li>
+                            Colocalization analysis
+                        </li>
+
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AI -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="analysis-card">
+
+
+                    <div class="analysis-icon">
+                        06
+                    </div>
+
+
+                    <h4>
+                        AI-Assisted Analysis
+                    </h4>
+
+
+                    <p>
+
+                        Machine-learning approaches can assist
+                        with segmentation and analysis of complex
+                        microscopy datasets.
+
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Cell and nucleus detection
+                        </li>
+
+                        <li>
+                            Complex object segmentation
+                        </li>
+
+                        <li>
+                            Custom training workflows
+                        </li>
+
+                        <li>
+                            Large-scale image analysis
+                        </li>
+
+                        <li>
+                            Automated measurements
+                        </li>
+
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Workflow
+========================================================= -->
+
+<section class="section workflow-section">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            Analysis Workflow
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            From Image to Measurement
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            A typical analysis workflow moves from image
+            preparation to biological interpretation.
+            Individual projects may use only selected
+            steps depending on the research question.
+
+        </p>
+
+
+        <div class="workflow">
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    01
+                </div>
+
+                <h5>
+                    Image Data
+                </h5>
+
+                <p>
+                    Microscopy images and datasets
+                </p>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    02
+                </div>
+
+                <h5>
+                    Processing
+                </h5>
+
+                <p>
+                    Correction, registration and preparation
+                </p>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    03
+                </div>
+
+                <h5>
+                    Segmentation
+                </h5>
+
+                <p>
+                    Identify biological structures
+                </p>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    04
+                </div>
+
+                <h5>
+                    Analysis
+                </h5>
+
+                <p>
+                    Track, measure and quantify
+                </p>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    05
+                </div>
+
+                <h5>
+                    Biological Insight
+                </h5>
+
+                <p>
+                    Convert measurements into results
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Image To Data
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="data-flow">
+
+
+            <div class="eyebrow">
+
+                From Image to Data
+
+            </div>
+
+
+            <h2>
+
+                See the Difference Between<br>
+                an Image and a Measurement
+
+            </h2>
+
+
+            <p class="mt-3">
+
+                Image analysis can transform a microscopy image
+                into structured information that can be measured,
+                compared, tracked, and statistically analyzed.
+
+            </p>
+
+
+            <div class="data-example">
+
+
+                <div class="data-stage">
+
+                    <strong>
+                        Microscopy Image
+                    </strong>
+
+                    <span>
+                        Fluorescence / Brightfield
+                    </span>
+
+                </div>
+
+
+                <div class="data-arrow">
+                    →
+                </div>
+
+
+                <div class="data-stage">
+
+                    <strong>
+                        Segmentation
+                    </strong>
+
+                    <span>
+                        Cells / Objects / Structures
+                    </span>
+
+                </div>
+
+
+                <div class="data-arrow">
+                    →
+                </div>
+
+
+                <div class="data-stage">
+
+                    <strong>
+                        Quantitative Data
+                    </strong>
+
+                    <span>
+                        Measurements / Trajectories
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Quantification
+========================================================= -->
+
+<section class="section section-soft">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            Quantitative Microscopy
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            What Can Be Measured?
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            Depending on the biological question, microscopy
+            images can be converted into a wide range of
+            quantitative measurements.
+
+        </p>
+
+
+        <div class="measurement-table">
+
+
+            <table class="table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Biological Feature
+                        </th>
+
+                        <th>
+                            Example Measurements
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Cells
+                        </td>
+
+                        <td>
+                            Number, area, morphology, density
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Nuclei
+                        </td>
+
+                        <td>
+                            Area, volume, intensity, shape
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Fluorescence
+                        </td>
+
+                        <td>
+                            Mean intensity, integrated intensity,
+                            intensity distribution
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Objects
+                        </td>
+
+                        <td>
+                            Number, size, shape, spatial distribution
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Time-Lapse
+                        </td>
+
+                        <td>
+                            Speed, displacement, trajectory,
+                            duration, event frequency
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Spatial Relationships
+                        </td>
+
+                        <td>
+                            Distance, overlap, colocalization
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Tools
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            Tools & Workflows
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Analysis Tools
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            Different datasets require different approaches.
+            We use a combination of established image-analysis
+            platforms, open-source tools, and computational
+            workflows according to the imaging data and
+            biological question.
+
+        </p>
+
+
+        <div class="row g-4 mt-4">
+
+
+            <!-- Image Processing -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="tool-box">
+
+
+                    <div class="tool-category">
+                        Image Processing
+                    </div>
+
+
+                    <h4>
+                        Fiji / ImageJ
+                    </h4>
+
+
+                    <p>
+
+                        Image processing, visualization,
+                        measurement, macros, and extensible
+                        analysis workflows.
+
+                    </p>
+
+
+                    <div class="tool-tags">
+
+                        <span class="tool-tag">
+                            Fiji
+                        </span>
+
+                        <span class="tool-tag">
+                            ImageJ
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Visualization -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="tool-box">
+
+
+                    <div class="tool-category">
+                        Visualization
+                    </div>
+
+
+                    <h4>
+                        napari
+                    </h4>
+
+
+                    <p>
+
+                        Interactive visualization and exploration
+                        of multidimensional microscopy datasets.
+
+                    </p>
+
+
+                    <div class="tool-tags">
+
+                        <span class="tool-tag">
+                            napari
+                        </span>
+
+                        <span class="tool-tag">
+                            Multidimensional Data
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 3D -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="tool-box">
+
+
+                    <div class="tool-category">
+                        3D Analysis
+                    </div>
+
+
+                    <h4>
+                        Imaris
+                    </h4>
+
+
+                    <p>
+
+                        3D visualization, surface analysis,
+                        object measurements, and tracking
+                        of volumetric microscopy data.
+
+                    </p>
+
+
+                    <div class="tool-tags">
+
+                        <span class="tool-tag">
+                            Imaris
+                        </span>
+
+                        <span class="tool-tag">
+                            3D
+                        </span>
+
+                        <span class="tool-tag">
+                            Tracking
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AI -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="tool-box">
+
+
+                    <div class="tool-category">
+                        AI-Assisted Analysis
+                    </div>
+
+
+                    <h4>
+                        Cellpose / StarDist
+                    </h4>
+
+
+                    <p>
+
+                        AI-assisted segmentation for cells,
+                        nuclei, and other biological structures.
+
+                    </p>
+
+
+                    <div class="tool-tags">
+
+                        <span class="tool-tag">
+                            Cellpose
+                        </span>
+
+                        <span class="tool-tag">
+                            StarDist
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Interactive Segmentation -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="tool-box">
+
+
+                    <div class="tool-category">
+                        Interactive Analysis
+                    </div>
+
+
+                    <h4>
+                        Labkit
+                    </h4>
+
+
+                    <p>
+
+                        Interactive machine-learning approaches
+                        for image classification and segmentation.
+
+                    </p>
+
+
+                    <div class="tool-tags">
+
+                        <span class="tool-tag">
+                            Labkit
+                        </span>
+
+                        <span class="tool-tag">
+                            Machine Learning
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Large Datasets -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="tool-box">
+
+
+                    <div class="tool-category">
+                        Large Datasets
+                    </div>
+
+
+                    <h4>
+                        BigStitcher
+                    </h4>
+
+
+                    <p>
+
+                        Registration and stitching of large
+                        tiled microscopy datasets and
+                        multidimensional image volumes.
+
+                    </p>
+
+
+                    <div class="tool-tags">
+
+                        <span class="tool-tag">
+                            BigStitcher
+                        </span>
+
+                        <span class="tool-tag">
+                            Stitching
+                        </span>
+
+                        <span class="tool-tag">
+                            Registration
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Applications
+========================================================= -->
+
+<section class="section section-soft">
+
+    <div class="container">
+
+
+        <div class="row g-5">
+
+
+            <div class="col-lg-5">
+
+
+                <div class="eyebrow">
+
+                    Biological Applications
+
+                </div>
+
+
+                <h2 class="section-title">
+
+                    Analysis Driven by<br>
+                    Biological Questions
+
+                </h2>
+
+
+                <p class="section-intro">
+
+                    The analysis workflow is selected according
+                    to what the researcher wants to measure,
+                    rather than being limited to a single
+                    software platform.
+
+                </p>
+
+
+            </div>
+
+
+            <div class="col-lg-7">
+
+
+                <div class="application">
+
+                    <h4>
+                        Cell Biology
+                    </h4>
+
+                    <p>
+
+                        Cell number, morphology, proliferation,
+                        migration, and changes in cellular organization.
+
+                    </p>
+
+                </div>
+
+
+                <div class="application">
+
+                    <h4>
+                        Organelle Dynamics
+                    </h4>
+
+                    <p>
+
+                        Organelle morphology, movement,
+                        distribution, and spatial organization.
+
+                    </p>
+
+                </div>
+
+
+                <div class="application">
+
+                    <h4>
+                        3D Biology
+                    </h4>
+
+                    <p>
+
+                        Volume, surface area, morphology,
+                        spatial relationships, and 3D object analysis.
+
+                    </p>
+
+                </div>
+
+
+                <div class="application">
+
+                    <h4>
+                        Live-Cell Imaging
+                    </h4>
+
+                    <p>
+
+                        Cell tracking, migration, division,
+                        dynamic behavior, and time-resolved measurements.
+
+                    </p>
+
+                </div>
+
+
+                <div class="application">
+
+                    <h4>
+                        Fluorescence Quantification
+                    </h4>
+
+                    <p>
+
+                        Fluorescence intensity, localization,
+                        colocalization, and changes over time.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Deliverables
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="eyebrow">
+
+            Analysis Outputs
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            From Images to Reusable Data
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            Depending on the project, analysis workflows can
+            generate processed images, quantitative measurements,
+            visualizations, and structured datasets for
+            downstream analysis.
+
+        </p>
+
+
+        <div class="row g-4 mt-4">
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="deliverable">
+
+                    <h5>
+                        Processed Images
+                    </h5>
+
+                    <p>
+
+                        Corrected, registered, stitched,
+                        or otherwise prepared image datasets.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="deliverable">
+
+                    <h5>
+                        Segmentation Masks
+                    </h5>
+
+                    <p>
+
+                        Labeled cells, nuclei, organelles,
+                        or other biological structures.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="deliverable">
+
+                    <h5>
+                        Tracking Data
+                    </h5>
+
+                    <p>
+
+                        Object trajectories, displacement,
+                        velocity, and time-resolved behavior.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="deliverable">
+
+                    <h5>
+                        Quantitative Tables
+                    </h5>
+
+                    <p>
+
+                        Measurements of intensity, morphology,
+                        object properties, and spatial relationships.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="deliverable">
+
+                    <h5>
+                        3D Visualizations
+                    </h5>
+
+                    <p>
+
+                        Three-dimensional renderings and
+                        volumetric representations of biological structures.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="deliverable">
+
+                    <h5>
+                        Analysis Workflows
+                    </h5>
+
+                    <p>
+
+                        Reproducible analysis procedures,
+                        macros, or computational workflows when appropriate.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+    <div class="container text-center">
+
+
+        <div class="eyebrow text-light">
+
+            Need Help with Your Data?
+
+        </div>
+
+
+        <h2>
+
+            Have an Image Analysis Problem?
+
+        </h2>
+
+
+        <p>
+
+            Not sure how to segment, track, quantify,
+            reconstruct, or visualize your microscopy data?
+            We can help identify an appropriate analysis
+            strategy for your biological question.
+
+        </p>
+
+
+        <a
+            href="../index.html#contact"
+            class="btn btn-light btn-lg rounded-pill px-4">
+
+            Discuss Your Analysis →
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Footer
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="row g-5">
+
+
+            <div class="col-lg-7">
+
+
+                <h4 class="fw-bold">
+
+                    Live-Cell Imaging Core Facility
+
+                </h4>
+
+
+                <p class="mt-3">
+
+                    Institute of Plant and Microbial Biology<br>
+
+                    Academia Sinica<br>
+
+                    Taipei, Taiwan
+
+                </p>
+
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+
+                <h5>
+
+                    Need an imaging consultation?
+
+                </h5>
+
+
+                <p>
+
+                    Have a biological question and not sure
+                    which imaging or analysis approach is right
+                    for your experiment?
+
+                </p>
+
+
+                <a
+                    href="../index.html#contact"
+                    class="btn btn-light rounded-pill">
+
+                    Contact the Core →
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+        <hr class="my-5 opacity-25">
+
+
+        <div class="small opacity-50">
+
+            © Academia Sinica · Institute of Plant and Microbial Biology
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>
+```

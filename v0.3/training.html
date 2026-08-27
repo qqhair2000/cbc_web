@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Training & Consultation | Live-Cell Imaging Core
+    </title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../images/favicon.png">
+
+
+    <style>
+
+        /* =========================================================
+           Global
+        ========================================================= */
+
+        :root {
+
+            --forest: #315f58;
+            --forest-dark: #244943;
+
+            --sage: #718f7c;
+            --sage-light: #dfe9e5;
+
+            --light: #f3f6f4;
+
+            --text: #26332d;
+            --muted: #6d7772;
+
+            --warm: #e7c98b;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family:
+                "Noto Sans TC",
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background: white;
+
+        }
+
+
+        /* =========================================================
+           Navigation
+        ========================================================= */
+
+        .navbar {
+
+            background: rgba(30, 42, 39, .96);
+
+            backdrop-filter: blur(12px);
+
+        }
+
+
+        .navbar-brand {
+
+            letter-spacing: .04em;
+
+        }
+
+
+        .navbar-brand small {
+
+            display: block;
+
+            font-size: .65rem;
+
+            font-weight: 400;
+
+            opacity: .65;
+
+            letter-spacing: .08em;
+
+        }
+
+
+        .nav-link {
+
+            margin-left: 10px;
+
+            transition: .25s;
+
+        }
+
+
+        .nav-link:hover {
+
+            color: var(--warm) !important;
+
+        }
+
+
+        /* =========================================================
+           Hero
+        ========================================================= */
+
+        .training-hero {
+
+            padding: 155px 0 100px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #eef3f0,
+                    #f7f9f8
+                );
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .training-hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+
+            height: 420px;
+
+            border-radius: 50%;
+
+            background: rgba(113, 143, 124, .08);
+
+            right: -120px;
+
+            top: -150px;
+
+        }
+
+
+        .eyebrow {
+
+            color: var(--forest);
+
+            font-size: .78rem;
+
+            font-weight: 700;
+
+            letter-spacing: .18em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .training-hero h1 {
+
+            font-size: clamp(
+                2.8rem,
+                6vw,
+                4.5rem
+            );
+
+            line-height: 1.05;
+
+            font-weight: 800;
+
+            letter-spacing: -.03em;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .hero-lead {
+
+            font-size: 1.2rem;
+
+            color: var(--muted);
+
+            line-height: 1.9;
+
+            max-width: 700px;
+
+        }
+
+
+        .hero-note {
+
+            margin-top: 30px;
+
+            padding-left: 20px;
+
+            border-left: 3px solid var(--sage);
+
+            color: var(--muted);
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================================
+           Section
+        ========================================================= */
+
+        .section {
+
+            padding: 100px 0;
+
+        }
+
+
+        .section-soft {
+
+            background: var(--light);
+
+        }
+
+
+        .section-title {
+
+            font-weight: 800;
+
+            letter-spacing: -.02em;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .section-intro {
+
+            color: var(--muted);
+
+            max-width: 760px;
+
+            line-height: 1.85;
+
+        }
+
+
+        /* =========================================================
+           Training Cards
+        ========================================================= */
+
+        .training-card {
+
+            height: 100%;
+
+            background: white;
+
+            border: none;
+
+            border-radius: 22px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 10px 35px rgba(
+                    30,
+                    50,
+                    45,
+                    .07
+                );
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+
+        }
+
+
+        .training-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 45px rgba(
+                    30,
+                    50,
+                    45,
+                    .12
+                );
+
+        }
+
+
+        .training-icon {
+
+            width: 58px;
+
+            height: 58px;
+
+            border-radius: 17px;
+
+            background: var(--sage-light);
+
+            color: var(--forest);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .training-icon svg {
+
+            width: 29px;
+
+            height: 29px;
+
+        }
+
+
+        .training-card h4 {
+
+            font-weight: 750;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .training-card p {
+
+            color: var(--muted);
+
+            line-height: 1.8;
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* =========================================================
+           Feature Section
+        ========================================================= */
+
+        .feature-box {
+
+            background: white;
+
+            border-radius: 26px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 12px 40px rgba(
+                    30,
+                    50,
+                    45,
+                    .08
+                );
+
+        }
+
+
+        .feature-content {
+
+            padding: 55px;
+
+        }
+
+
+        .feature-content h3 {
+
+            font-weight: 800;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .feature-content p {
+
+            color: var(--muted);
+
+            line-height: 1.85;
+
+        }
+
+
+        .feature-list {
+
+            list-style: none;
+
+            padding: 0;
+
+            margin: 30px 0 0;
+
+        }
+
+
+        .feature-list li {
+
+            padding: 11px 0;
+
+            border-bottom:
+                1px solid #e5ebe7;
+
+            color: var(--muted);
+
+        }
+
+
+        .feature-list li:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .feature-list li::before {
+
+            content: "→";
+
+            color: var(--forest);
+
+            font-weight: 700;
+
+            margin-right: 12px;
+
+        }
+
+
+        /* =========================================================
+           Consultation
+        ========================================================= */
+
+        .consultation-box {
+
+            padding: 50px;
+
+            border-radius: 24px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #315f58,
+                    #244943
+                );
+
+            color: white;
+
+        }
+
+
+        .consultation-box h3 {
+
+            font-weight: 800;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .consultation-box p {
+
+            color: rgba(
+                255,
+                255,
+                255,
+                .82
+            );
+
+            line-height: 1.9;
+
+            max-width: 760px;
+
+        }
+
+
+        .consultation-list {
+
+            margin-top: 30px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(
+                        0,
+                        1fr
+                    )
+                );
+
+            gap: 12px 30px;
+
+        }
+
+
+        .consultation-list div {
+
+            padding: 12px 0;
+
+            border-bottom:
+                1px solid rgba(
+                    255,
+                    255,
+                    255,
+                    .18
+                );
+
+            color: rgba(
+                255,
+                255,
+                255,
+                .9
+            );
+
+        }
+
+
+        /* =========================================================
+           Workflow
+        ========================================================= */
+
+        .workflow-item {
+
+            height: 100%;
+
+            padding: 30px 25px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px rgba(
+                    30,
+                    50,
+                    45,
+                    .06
+                );
+
+        }
+
+
+        .workflow-number {
+
+            font-size: .75rem;
+
+            font-weight: 800;
+
+            letter-spacing: .15em;
+
+            color: var(--forest);
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .workflow-item strong {
+
+            display: block;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .workflow-item p {
+
+            color: var(--muted);
+
+            font-size: .92rem;
+
+            line-height: 1.7;
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* =========================================================
+           Advanced Training
+        ========================================================= */
+
+        .advanced-section {
+
+            background: #202b28;
+
+            color: white;
+
+        }
+
+
+        .advanced-section .eyebrow {
+
+            color: var(--warm);
+
+        }
+
+
+        .advanced-section .section-title {
+
+            color: white;
+
+        }
+
+
+        .advanced-section .section-intro {
+
+            color: rgba(
+                255,
+                255,
+                255,
+                .68
+            );
+
+        }
+
+
+        .advanced-item {
+
+            padding: 25px 0;
+
+            border-bottom:
+                1px solid rgba(
+                    255,
+                    255,
+                    255,
+                    .12
+                );
+
+        }
+
+
+        .advanced-item:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .advanced-item h4 {
+
+            font-weight: 700;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .advanced-item p {
+
+            color: rgba(
+                255,
+                255,
+                255,
+                .65
+            );
+
+            line-height: 1.75;
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta {
+
+            padding: 90px 0;
+
+            background: var(--light);
+
+        }
+
+
+        .cta-box {
+
+            background: white;
+
+            border-radius: 28px;
+
+            padding: 60px;
+
+            box-shadow:
+                0 12px 40px rgba(
+                    30,
+                    50,
+                    45,
+                    .08
+                );
+
+        }
+
+
+        .cta-box h2 {
+
+            font-weight: 800;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .cta-box p {
+
+            color: var(--muted);
+
+            line-height: 1.85;
+
+            max-width: 700px;
+
+        }
+
+
+        .btn-core {
+
+            background: var(--forest);
+
+            color: white;
+
+            border: none;
+
+            padding: 13px 26px;
+
+            border-radius: 50px;
+
+            transition: .25s;
+
+        }
+
+
+        .btn-core:hover {
+
+            background: var(--forest-dark);
+
+            color: white;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =========================================================
+           Footer
+        ========================================================= */
+
+        footer {
+
+            background: #18201c;
+
+            color: white;
+
+            padding: 60px 0;
+
+        }
+
+
+        footer p {
+
+            color: rgba(
+                255,
+                255,
+                255,
+                .65
+            );
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================================
+           Responsive
+        ========================================================= */
+
+        @media (max-width: 768px) {
+
+            .training-hero {
+
+                padding: 130px 0 75px;
+
+            }
+
+
+            .section {
+
+                padding: 70px 0;
+
+            }
+
+
+            .feature-content {
+
+                padding: 35px;
+
+            }
+
+
+            .consultation-box {
+
+                padding: 35px;
+
+            }
+
+
+            .consultation-list {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .cta-box {
+
+                padding: 35px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     Navigation
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+
+        <a
+            class="navbar-brand fw-bold"
+            href="../index.html">
+
+            LIVE-CELL IMAGING CORE
+
+            <small>
+                Institute of Plant and Microbial Biology · Academia Sinica
+            </small>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="menu">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../instruments.html">
+
+                        Instruments
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#service">
+
+                        Services
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../image-analysis.html">
+
+                        Analysis
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link active"
+                        href="training.html">
+
+                        Training
+
+                    </a>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="../index.html#contact">
+
+                        Contact
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     Hero
+========================================================= -->
+
+<section class="training-hero">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-9">
+
+                <div class="eyebrow">
+
+                    Learn With Us
+
+                </div>
+
+
+                <h1>
+
+                    Training &<br>
+                    Consultation
+
+                </h1>
+
+
+                <p class="hero-lead">
+
+                    Imaging is more than operating a microscope.
+                    We provide hands-on training, experimental
+                    consultation, acquisition guidance, and
+                    troubleshooting support to help researchers
+                    obtain meaningful and reliable imaging data.
+
+                </p>
+
+
+                <div class="hero-note">
+
+                    From your first experiment to more advanced
+                    imaging applications, we can help you develop
+                    an imaging strategy that fits your biological
+                    question.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Training
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="eyebrow">
+
+            Instrument Training
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Learn to Use the Instruments
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            Hands-on training introduces researchers to the
+            imaging systems, acquisition workflow, and practical
+            considerations required for successful experiments.
+
+        </p>
+
+
+        <div class="row g-4 mt-4">
+
+
+            <!-- Basic Training -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="training-card">
+
+                    <div class="training-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path d="M8 1a3 3 0 0 0-3 3v1H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V4a3 3 0 0 0-3-3zm2 4H6V4a2 2 0 1 1 4 0z"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h4>
+                        Instrument Training
+                    </h4>
+
+
+                    <p>
+
+                        Learn the essential operation,
+                        acquisition workflow, and basic
+                        controls of the imaging systems.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Acquisition -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="training-card">
+
+                    <div class="training-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path d="M3 3h10v2H3zM1 7h14v2H1zM3 11h10v2H3z"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h4>
+                        Acquisition Guidance
+                    </h4>
+
+
+                    <p>
+
+                        Understand how to select imaging
+                        parameters, optimize acquisition,
+                        and balance image quality with
+                        sample preservation.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Advanced -->
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="training-card">
+
+                    <div class="training-icon">
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m0 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2m-1 4h2v4H7z"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <h4>
+                        Advanced Applications
+                    </h4>
+
+
+                    <p>
+
+                        Guidance for specialized applications
+                        such as live-cell imaging, spectral
+                        imaging, FLIM, FRAP, and quantitative
+                        fluorescence experiments.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Consultation
+========================================================= -->
+
+<section class="section section-soft">
+
+    <div class="container">
+
+        <div class="consultation-box">
+
+            <div class="eyebrow text-light">
+
+                Imaging Consultation
+
+            </div>
+
+
+            <h3>
+
+                Start With the Biological Question
+
+            </h3>
+
+
+            <p>
+
+                The best imaging strategy depends on what you
+                want to measure. We can discuss your experimental
+                goals and help identify an appropriate imaging
+                approach before you begin acquisition.
+
+            </p>
+
+
+            <div class="consultation-list">
+
+                <div>
+                    Choosing an imaging modality
+                </div>
+
+                <div>
+                    Selecting objectives and imaging conditions
+                </div>
+
+                <div>
+                    Fluorescence and labeling strategy
+                </div>
+
+                <div>
+                    Time-lapse and live-cell experiments
+                </div>
+
+                <div>
+                    Multichannel and spectral imaging
+                </div>
+
+                <div>
+                    Quantitative fluorescence experiments
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Feature
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="feature-box">
+
+            <div class="row g-0 align-items-center">
+
+
+                <div class="col-lg-6">
+
+                    <div class="feature-content">
+
+                        <div class="eyebrow">
+
+                            Optimize Your Experiment
+
+                        </div>
+
+
+                        <h3>
+
+                            Good Imaging Starts
+                            Before Acquisition
+
+                        </h3>
+
+
+                        <p>
+
+                            Imaging parameters can strongly affect
+                            the quality and interpretation of biological
+                            data. Planning the acquisition strategy
+                            in advance can help avoid unnecessary
+                            photobleaching, phototoxicity, saturation,
+                            and poor signal-to-noise.
+
+                        </p>
+
+
+                        <ul class="feature-list">
+
+                            <li>
+                                Define the biological question
+                            </li>
+
+                            <li>
+                                Select an appropriate imaging approach
+                            </li>
+
+                            <li>
+                                Optimize acquisition parameters
+                            </li>
+
+                            <li>
+                                Consider photobleaching and phototoxicity
+                            </li>
+
+                            <li>
+                                Plan image analysis and quantitative measurements
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-6">
+
+                    <div
+                        class="p-5 text-center"
+                        style="
+                            min-height: 420px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background: #eef3f0;
+                        ">
+
+                        <div>
+
+                            <div
+                                class="display-1 fw-bold"
+                                style="
+                                    color: var(--forest);
+                                ">
+
+                                Plan
+
+                            </div>
+
+
+                            <div
+                                class="display-1 fw-bold"
+                                style="
+                                    color: var(--sage);
+                                ">
+
+                                Image
+
+                            </div>
+
+
+                            <div
+                                class="display-1 fw-bold"
+                                style="
+                                    color: var(--forest-dark);
+                                ">
+
+                                Analyze
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Troubleshooting
+========================================================= -->
+
+<section class="section section-soft">
+
+    <div class="container">
+
+        <div class="eyebrow">
+
+            Troubleshooting Support
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            When Imaging Does Not Go as Expected
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            Unexpected background, weak fluorescence, focus
+            instability, photobleaching, or inconsistent results
+            can often be addressed by examining the acquisition
+            workflow and experimental conditions.
+
+        </p>
+
+
+        <div class="row g-4 mt-4">
+
+
+            <div class="col-md-6">
+
+                <div class="training-card">
+
+                    <h4>
+                        Acquisition Problems
+                    </h4>
+
+
+                    <p>
+
+                        Help identify possible causes of poor
+                        signal, background fluorescence, saturation,
+                        focus problems, or inconsistent image quality.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="training-card">
+
+                    <h4>
+                        Experimental Problems
+                    </h4>
+
+
+                    <p>
+
+                        Discuss issues related to labeling,
+                        sample preparation, photobleaching,
+                        phototoxicity, and long-term imaging.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Workflow
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="eyebrow">
+
+            How We Work
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            From Question to Imaging Strategy
+
+        </h2>
+
+
+        <div class="row g-3 mt-4">
+
+
+            <div class="col-md">
+
+                <div class="workflow-item">
+
+                    <div class="workflow-number">
+                        01
+                    </div>
+
+
+                    <strong>
+                        Discuss
+                    </strong>
+
+
+                    <p>
+
+                        Define the biological question
+                        and experimental goal.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md">
+
+                <div class="workflow-item">
+
+                    <div class="workflow-number">
+                        02
+                    </div>
+
+
+                    <strong>
+                        Plan
+                    </strong>
+
+
+                    <p>
+
+                        Select an imaging approach
+                        and acquisition strategy.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md">
+
+                <div class="workflow-item">
+
+                    <div class="workflow-number">
+                        03
+                    </div>
+
+
+                    <strong>
+                        Train
+                    </strong>
+
+
+                    <p>
+
+                        Learn the instrument and
+                        practical imaging workflow.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md">
+
+                <div class="workflow-item">
+
+                    <div class="workflow-number">
+                        04
+                    </div>
+
+
+                    <strong>
+                        Acquire
+                    </strong>
+
+
+                    <p>
+
+                        Collect optimized and
+                        reproducible imaging data.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md">
+
+                <div class="workflow-item">
+
+                    <div class="workflow-number">
+                        05
+                    </div>
+
+
+                    <strong>
+                        Analyze
+                    </strong>
+
+
+                    <p>
+
+                        Connect imaging data with
+                        quantitative analysis.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Advanced Applications
+========================================================= -->
+
+<section class="section advanced-section">
+
+    <div class="container">
+
+        <div class="eyebrow">
+
+            Advanced Imaging
+
+        </div>
+
+
+        <h2 class="section-title">
+
+            Application-Specific Guidance
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            For more specialized experiments, consultation can
+            focus on the imaging strategy required by the
+            biological application.
+
+        </p>
+
+
+        <div class="row mt-5">
+
+
+            <div class="col-lg-6">
+
+                <div class="advanced-item">
+
+                    <h4>
+                        Live-Cell Imaging
+                    </h4>
+
+
+                    <p>
+
+                        Time-lapse design, environmental control,
+                        imaging frequency, phototoxicity, and
+                        long-term image quality.
+
+                    </p>
+
+                </div>
+
+
+                <div class="advanced-item">
+
+                    <h4>
+                        Quantitative Fluorescence
+                    </h4>
+
+
+                    <p>
+
+                        Acquisition considerations for
+                        fluorescence intensity measurements
+                        and quantitative comparisons.
+
+                    </p>
+
+                </div>
+
+
+                <div class="advanced-item">
+
+                    <h4>
+                        FRAP
+                    </h4>
+
+
+                    <p>
+
+                        Experimental design and acquisition
+                        considerations for studying molecular
+                        mobility and fluorescence recovery.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="advanced-item">
+
+                    <h4>
+                        FLIM
+                    </h4>
+
+
+                    <p>
+
+                        Guidance for fluorescence lifetime
+                        measurements and application-specific
+                        imaging strategies.
+
+                    </p>
+
+                </div>
+
+
+                <div class="advanced-item">
+
+                    <h4>
+                        Multichannel Imaging
+                    </h4>
+
+
+                    <p>
+
+                        Channel selection, spectral separation,
+                        signal optimization, and minimizing
+                        cross-talk between fluorophores.
+
+                    </p>
+
+                </div>
+
+
+                <div class="advanced-item">
+
+                    <h4>
+                        Image Analysis Planning
+                    </h4>
+
+
+                    <p>
+
+                        Consider how images will be quantified
+                        before acquisition so that imaging
+                        parameters support downstream analysis.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box text-center">
+
+            <div class="eyebrow">
+
+                Need Help With Your Experiment?
+
+            </div>
+
+
+            <h2>
+
+                Let's plan your imaging strategy.
+
+            </h2>
+
+
+            <p class="mx-auto mt-3">
+
+                Whether you are using a confocal microscope
+                for the first time or planning a more advanced
+                imaging experiment, we can help you determine
+                an appropriate approach.
+
+            </p>
+
+
+            <a
+                href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+                target="_blank"
+                class="btn btn-core btn-lg mt-3">
+
+                Request Training / Consultation ↗
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     Footer
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-5">
+
+
+            <div class="col-lg-7">
+
+                <h4 class="fw-bold">
+
+                    Live-Cell Imaging Core Facility
+
+                </h4>
+
+
+                <p class="mt-3">
+
+                    Institute of Plant and Microbial Biology<br>
+
+                    Academia Sinica<br>
+
+                    Taipei, Taiwan
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+                <h5>
+
+                    Training & Consultation
+
+                </h5>
+
+
+                <p>
+
+                    Imaging training, experimental consultation,
+                    acquisition guidance, and troubleshooting support.
+
+                </p>
+
+
+                <a
+                    href="http://meeting.ipmb.sinica.edu.tw/reservation/live_cell"
+                    target="_blank"
+                    class="btn btn-core">
+
+                    Request Training ↗
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <hr class="my-5 opacity-25">
+
+
+        <div class="small opacity-50">
+
+            © Academia Sinica · Institute of Plant and Microbial Biology
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>
